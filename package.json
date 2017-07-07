@@ -1,7 +1,7 @@
 {
   "name": "react-media-print",
   "description": "React HOC for print and non-print deep nested components wrapping",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "ava"
   },
