@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default class PrintPrivider extends React.PureComponent {
+export default class PrintProvider extends React.PureComponent {
   getChildContext () {
     return {
       regPrintable: this.regPrintable.bind(this),
@@ -39,7 +39,7 @@ export default class PrintPrivider extends React.PureComponent {
   }
 }
 
-PrintPrivider.childContextTypes = {
+PrintProvider.childContextTypes = {
   printProvider: PropTypes.shape({
     regPrintable: PropTypes.func.isRequired,
   }).isRequired,
@@ -55,4 +55,4 @@ export class Print extends React.PureComponent {
   }
 }
 
-Print.contextTypes = PrintPrivider.childContextTypes;
+Print.contextTypes = PrintProvider.childContextTypes;
