@@ -6,3 +6,4 @@ React HOC for deep nested printable components wrapping.
 
 ## alternatives
 * [react-print](https://github.com/captray/react-print)
+* [react-detect-print](https://github.com/tacomanator/react-detect-print)
