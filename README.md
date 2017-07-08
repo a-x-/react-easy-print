@@ -4,7 +4,7 @@ React HOC for easy printing only components marked as printable.
 
 ## usage
 
-**example 1** page with modal window with content should be print only:
+**example 1** a page with modal window with content should be only visible in the print mode:
 
 ```jsx
 <PrintProvider>
