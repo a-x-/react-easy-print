@@ -51,7 +51,7 @@ p.s. `print mode` is when browser's print preview opened (e.g. after `^p` or `‚å
         ...                                 //
           <NoPrint>
             <Header/>                       // non visible in print mode
-          <NoPrint>
+          </NoPrint>
         ...                                 //
         <Print special>
           Consectetur adipisicing elit.     // in the print mode visible only
