@@ -1,12 +1,12 @@
-# react-media-print [![Build Status](https://travis-ci.org/a-x-/react-media-print.svg?branch=master)](https://travis-ci.org/a-x-/react-media-print)
-
-React HOC for easy printing only components marked as printable.
+# react-easy-print [![Build Status](https://travis-ci.org/a-x-/react-easy-print.svg?branch=master)](https://travis-ci.org/a-x-/react-easy-print)
 
 ## usage
 
 **example 1** a page with modal window with content should be only visible in the print mode:
 
 ```jsx
+import PrintProvider, { Print } from 'react-easy-print';
+...
 <PrintProvider>
   <Router>
     <Layout>                  //
@@ -32,6 +32,7 @@ p.s. `print mode` is when browser's print preview opened (e.g. after `^p` or `‚å
 
 **example 2** special content should be visible in print mode only:
 ```jsx
+...
 <PrintProvider>
   ...                                   // non visible in the print mode
     <Print exclusive>
@@ -44,6 +45,7 @@ p.s. `print mode` is when browser's print preview opened (e.g. after `^p` or `‚å
 
 **example 3** complex case: almost all content visible in print mode, but some doesn't and another only in print mode visible:
 ```jsx
+...
 <PrintProvider>
   <Print>                                   //
     ...                                     // visible in the print and non-print modes
@@ -65,6 +67,7 @@ p.s. `print mode` is when browser's print preview opened (e.g. after `^p` or `‚å
 
 **example 4** garantee correct main printable element position:
 ```jsx
+...
 <Modal>             //
   <Print main>
     <span>          //
