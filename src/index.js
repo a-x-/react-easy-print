@@ -22,7 +22,10 @@ PrintProvider.childContextTypes = {
 };
 
 export const Print = () => {
-  return <div className="print-provider__print">{ this.props.children }</div>;
+  const { children, main, exclusive } = this.props;
+  const main_ = main ? ' _main' : '';
+  cosnt excl_ = exclusive ? ' _exclusive' : '';
+  return <div className="print-provider__print${ main_ }${ excl_ }">{ children }</div>;
 };
 
 export const NoPrint = () => {
