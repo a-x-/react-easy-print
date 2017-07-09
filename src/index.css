@@ -1,0 +1,11 @@
+@media print {
+  .print-provider__wrap {
+    visibility: hidden;
+  }
+  .print-provider__print {
+    visibility: visible; /* visible element even nested in the hidden one */
+  }
+  .print-provider__no-print {
+    visibility: hidden;
+  }
+}
