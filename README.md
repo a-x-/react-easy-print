@@ -34,7 +34,7 @@ p.s. `print mode` is when browser's print preview opened (e.g. after `^p` or `‚å
 ```jsx
 <PrintProvider>
   ...                                   // non visible in the print mode
-    <Print special>
+    <Print exclusive>
       Consectetur adipisicing elit.     // in the print mode visible only
       Alias, corrupti similique minus   //
     </Print>
@@ -53,7 +53,7 @@ p.s. `print mode` is when browser's print preview opened (e.g. after `^p` or `‚å
             <Header/>                       // non visible in print mode
           </NoPrint>
         ...                                 //
-        <Print special>
+        <Print exclusive>
           Consectetur adipisicing elit.     // in the print mode visible only
           Alias, corrupti similique minus   //
         </Print>
@@ -63,6 +63,32 @@ p.s. `print mode` is when browser's print preview opened (e.g. after `^p` or `‚å
 </PrintProvider>
 ```
 
+**example 4** garantee correct main printable element position:
+```jsx
+<Modal>             //
+  <Print main>
+    <span>          //
+      details       // visible in the print and non-print modes
+    </span>         //
+  </Print>
+</Modal>            //
+```
+
+## api
+### PrintProvider
+Should be placed in the layout.
+
+### Print
+Should wrap printable element(s).
+
+| prop |   |
+| --- | --- |
+| exclusive | in the print mode visible only |
+| main | garantee correct position (left, top corner) for single main printable |
+
+### NoPrint
+Should wrap nested to Print nodes to ignore them.
+Useful in the come complex cases. You might not need `NoPrint`.
 
 ## alternatives
 * [react-print](https://github.com/captray/react-print)
