@@ -4,7 +4,7 @@
   "main": "dist",
   "scripts": {
     "test": "ava",
-    "postinstall": "NODE_ENV=production webpack"
+    "postinstall": "NODE_ENV=production node_modules/.bin/webpack"
   },
   "repository": "git@github.com:a-x-/react-easy-print.git",
   "author": "Alex Mextner <alex@rocketguys.com>",
