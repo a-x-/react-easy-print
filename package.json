@@ -12,10 +12,11 @@
   "version": "0.1.4",
   "license": "MIT",
   "devDependencies": {
-    "ava": "^0.20.0",
     "autoprefixer": "^7.1.2",
+    "ava": "^0.20.0",
     "babel": "^6.23.0",
     "babel-loader": "^7.1.1",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.6",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",

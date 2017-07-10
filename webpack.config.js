@@ -42,6 +42,12 @@ module.exports = {
             'stage-2',
           ],
           cacheDirectory: true,
+          plugins: [
+            ['transform-react-remove-prop-types', {
+              mode: 'remove',
+              removeImport: true,
+            }],
+          ]
         }
       },
       {
