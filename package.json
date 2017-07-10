@@ -9,7 +9,7 @@
   },
   "repository": "git@github.com:a-x-/react-easy-print.git",
   "author": "Alex Mextner <alex@rocketguys.com>",
-  "version": "0.2.7",
+  "version": "0.3.0",
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^7.1.2",
