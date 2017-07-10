@@ -5,7 +5,7 @@ module.exports = {
   entry: { index: '.' },
 
   output: {
-    filename: 'dist/[name].js'
+    filename: 'build/[name].js'
   },
 
   context: path.join(__dirname, "src"),
