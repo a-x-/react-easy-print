@@ -12,9 +12,7 @@
   "version": "0.1.2",
   "license": "MIT",
   "devDependencies": {
-    "ava": "^0.20.0"
-  },
-  "dependencies": {
+    "ava": "^0.20.0",
     "autoprefixer": "^7.1.2",
     "babel": "^6.23.0",
     "babel-loader": "^7.1.1",
@@ -24,8 +22,10 @@
     "css-loader": "^0.28.4",
     "postcss-loader": "^2.0.6",
     "postcss-nested": "^2.0.2",
-    "react": "^15.6.1",
     "style-loader": "^0.18.2",
     "webpack": "^3.1.0"
+  },
+  "dependencies": {
+    "react": "^15.6.1"
   }
 }
