@@ -93,6 +93,10 @@ Should wrap printable element(s).
 Should wrap nested to Print nodes to ignore them.
 Useful in the come complex cases. You might not need `NoPrint`.
 
+| prop |   |
+| --- | --- |
+| force | `display: node` instead of `visibility: hidden` |
+
 ## alternatives
 * [react-print](https://github.com/captray/react-print)
 * [react-detect-print](https://github.com/tacomanator/react-detect-print)

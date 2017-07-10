@@ -35,8 +35,10 @@ Print.propTypes = {
   main: PropTypes.bool,
   exclusive: PropTypes.bool,
 };
-export const NoPrint = ({ children }) => {
-  return <div className={ s.noPrint }>{ children }</div>;
+export const NoPrint = ({ children, force }) => {
+  console.log(s.noPrint, typeof s.noPrint)
+  const force_ = force ? s.force : '';
+  return <div className={`${ s.noPrint } ${ force_ }`}>{ children }</div>;
 };
 NoPrint.propTypes = {
   children: PropTypes.node,
