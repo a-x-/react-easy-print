@@ -2,7 +2,6 @@
   "name": "react-easy-print",
   "description": "Powerful react HOC for easy printing components marked as printable",
   "main": "build",
-  "module": "src",
   "scripts": {
     "test": "ava",
     "build": "NODE_ENV=production node_modules/.bin/webpack"
