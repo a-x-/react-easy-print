@@ -12,9 +12,12 @@ export default class PrintProvider extends React.PureComponent {
   }
 
   render () {
-    return <div style={ s.wrap }>{ this.props.children }</div>;
+    return <div className={ s.wrap }>{ this.props.children }</div>;
   }
 }
+PrintProvider.propTypes = {
+  children: PropTypes.node,
+};
 
 PrintProvider.childContextTypes = {
   printProvider: PropTypes.shape({
@@ -24,11 +27,18 @@ PrintProvider.childContextTypes = {
 
 export const Print = () => {
   const { children, main, exclusive } = this.props;
-  const main_ = main ? ' _main' : '';
-  const excl_ = exclusive ? ' _exclusive' : '';
-  return <div style={ s.print } className="${ main_ }${ excl_ }">{ children }</div>;
+  const main_ = main ? s.main : '';
+  const excl_ = exclusive ? s.exclusive : '';
+  return <div className={`${ s.print } ${ main_ } ${ excl_ }`}>{ children }</div>;
 };
-
+Print.propTypes = {
+  children: PropTypes.node,
+  main: PropTypes.bool,
+  exclusive: PropTypes.bool,
+};
 export const NoPrint = () => {
-  return <div style={ s.noPrint }>{ this.props.children }</div>;
+  return <div className={ s.noPrint }>{ this.props.children }</div>;
+};
+NoPrint.propTypes = {
+  children: PropTypes.node,
 };

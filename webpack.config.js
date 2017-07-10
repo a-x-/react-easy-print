@@ -8,7 +8,7 @@ module.exports = {
     filename: 'build/[name].js'
   },
 
-  context: path.join(__dirname, "src"),
+  context: path.join(__dirname, 'src'),
 
   resolve: {
     extensions: ['.js', '.jsx']
@@ -66,7 +66,6 @@ module.exports = {
               importLoaders: 1,
               modules: true,
               camelCase: 'only',
-              importLoaders: 1,
               getLocalIdent: (ctx, localIdentName, localName) => `print-${ new Buffer('p').toString('base64').slice(0, -2) }__${ localName }`,
             },
           },
@@ -85,4 +84,4 @@ module.exports = {
       }
     ]
   },
-}
+};
