@@ -1,5 +1,5 @@
 import test from 'ava';
-import lib from './src';
+// import lib from './build/main';
 
 test('foo', t => {
   t.pass();

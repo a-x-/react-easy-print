@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import s from './index.css';
 
 export default class PrintProvider extends React.PureComponent {
   getChildContext () {
@@ -11,7 +11,7 @@ export default class PrintProvider extends React.PureComponent {
   }
 
   render () {
-    return <div className="print-provider__wrap">{ this.props.children }</div>;
+    return <div style={ s.wrap }>{ this.props.children }</div>;
   }
 }
 
@@ -25,9 +25,9 @@ export const Print = () => {
   const { children, main, exclusive } = this.props;
   const main_ = main ? ' _main' : '';
   const excl_ = exclusive ? ' _exclusive' : '';
-  return <div className="print-provider__print${ main_ }${ excl_ }">{ children }</div>;
+  return <div style={ s.print } className="${ main_ }${ excl_ }">{ children }</div>;
 };
 
 export const NoPrint = () => {
-  return <div className="print-provider__no-print">{ this.props.children }</div>;
+  return <div style={ s['no-print'] }>{ this.props.children }</div>;
 };

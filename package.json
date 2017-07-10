@@ -1,10 +1,11 @@
 {
   "name": "react-easy-print",
   "description": "Powerful react HOC for easy printing components marked as printable",
-  "main": "src/index.js",
+  "main": "build/main.js",
   "scripts": {
     "test": "ava",
-    "version": "webpack"
+    "version": "webpack",
+    "pretest": "webpack"
   },
   "repository": "git@github.com:a-x-/react-easy-print.git",
   "author": "Alex Mextner <alex@rocketguys.com>",

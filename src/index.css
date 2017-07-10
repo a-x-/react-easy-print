@@ -1,22 +1,22 @@
-.print-provider__print._exclusive {
+.print._exclusive {
   display: none;
 }
 @media print {
-  .print-provider__wrap {
+  .wrap {
     visibility: hidden;
   }
-  .print-provider__print {
+  .print {
     visibility: visible; /* visible element even nested in the hidden one */
   }
-  .print-provider__print._main {
+  .print._main {
     position: fixed;
     left: 0;
     top: 0;
   }
-  .print-provider__print._exclusive {
+  .print._exclusive {
     display: block;
   }
-  .print-provider__no-print {
+  .no-print {
     visibility: hidden;
   }
 }
