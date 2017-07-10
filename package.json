@@ -3,7 +3,8 @@
   "description": "Powerful react HOC for easy printing components marked as printable",
   "main": "src/index.js",
   "scripts": {
-    "test": "ava"
+    "test": "ava",
+    "version": "webpack"
   },
   "repository": "git@github.com:a-x-/react-easy-print.git",
   "author": "Alex Mextner <alex@rocketguys.com>",
@@ -11,5 +12,19 @@
   "license": "MIT",
   "devDependencies": {
     "ava": "^0.20.0"
+  },
+  "dependencies": {
+    "autoprefixer": "^7.1.2",
+    "babel": "^6.23.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "css-loader": "^0.28.4",
+    "postcss-loader": "^2.0.6",
+    "postcss-nested": "^2.0.2",
+    "react": "^15.6.1",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.1.0"
   }
 }
