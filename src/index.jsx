@@ -25,8 +25,7 @@ PrintProvider.childContextTypes = {
   }).isRequired,
 };
 
-export const Print = () => {
-  const { children, main, exclusive } = this.props;
+export const Print = ({ children, main, exclusive }) => {
   const main_ = main ? s.main : '';
   const excl_ = exclusive ? s.exclusive : '';
   return <div className={`${ s.print } ${ main_ } ${ excl_ }`}>{ children }</div>;
@@ -36,8 +35,8 @@ Print.propTypes = {
   main: PropTypes.bool,
   exclusive: PropTypes.bool,
 };
-export const NoPrint = () => {
-  return <div className={ s.noPrint }>{ this.props.children }</div>;
+export const NoPrint = ({ children }) => {
+  return <div className={ s.noPrint }>{ children }</div>;
 };
 NoPrint.propTypes = {
   children: PropTypes.node,

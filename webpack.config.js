@@ -1,17 +1,29 @@
 const path = require('path');
 const webpack = require('webpack');
+console.log(process.env.NODE_ENV)
 
 module.exports = {
   entry: { index: '.' },
 
   output: {
-    filename: 'build/[name].js'
+    filename: 'build/[name].js',
+    library: 'react-easy-print',
+    libraryTarget: "commonjs2",
   },
 
   context: path.join(__dirname, 'src'),
 
   resolve: {
     extensions: ['.js', '.jsx']
+  },
+
+  externals: {
+    react: {
+      root: 'React',
+      commonjs2: 'react',
+      commonjs: 'react',
+      amd: 'react'
+    },
   },
 
   plugins: [
@@ -21,9 +33,9 @@ module.exports = {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       }
     }),
-    new webpack.optimize.UglifyJsPlugin(),
+    process.env.NODE_ENV === 'production' ? new webpack.optimize.UglifyJsPlugin() : null,
     new webpack.optimize.ModuleConcatenationPlugin(), // webpack3
-  ],
+  ].filter(v => v),
 
   module: {
     rules: [
@@ -50,6 +62,7 @@ module.exports = {
               mode: 'remove',
               removeImport: true,
             }],
+            'transform-runtime',
           ]
         }
       },
