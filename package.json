@@ -25,10 +25,11 @@
     "style-loader": "^0.18.2",
     "webpack": "^3.1.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "prop-types": "^15.5.10"
+  },
   "peerDependencies": {
-    "react": "^15.0.0",
-    "prop-types": "^15.0.0"
+    "react": "^15.0.0"
   },
   "engines": {
     "node": ">=8.0"
