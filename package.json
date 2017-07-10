@@ -4,8 +4,7 @@
   "main": "build/main.js",
   "scripts": {
     "test": "ava",
-    "version": "webpack",
-    "pretest": "webpack"
+    "version": "webpack"
   },
   "repository": "git@github.com:a-x-/react-easy-print.git",
   "author": "Alex Mextner <alex@rocketguys.com>",
