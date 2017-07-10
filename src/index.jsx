@@ -30,5 +30,5 @@ export const Print = () => {
 };
 
 export const NoPrint = () => {
-  return <div style={ s['no-print'] }>{ this.props.children }</div>;
+  return <div style={ s.noPrint }>{ this.props.children }</div>;
 };

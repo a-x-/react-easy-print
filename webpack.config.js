@@ -2,10 +2,10 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: '.',
+  entry: { index: '.' },
 
   output: {
-    filename: 'build/[name].js'
+    filename: 'dist/[name].js'
   },
 
   context: path.join(__dirname, "src"),
@@ -62,6 +62,9 @@ module.exports = {
             options: {
               importLoaders: 1,
               modules: true,
+              camelCase: 'only',
+              importLoaders: 1,
+              getLocalIdent: (ctx, localIdentName, localName) => `print-${ new Buffer('p').toString('base64').slice(0, -2) }__${ localName }`,
             },
           },
           {
@@ -78,5 +81,9 @@ module.exports = {
         ]
       }
     ]
-  }
+  },
+  externals: {
+    'react': 'React',
+    'react-dom': 'ReactDOM',
+  },
 }

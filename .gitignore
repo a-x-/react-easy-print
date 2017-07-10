@@ -84,3 +84,7 @@ typings/
 
 # dotenv environment variables file
 .env
+
+# custom
+/build/
+/dist/
