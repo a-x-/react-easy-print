@@ -36,7 +36,7 @@ export default class PrintProvider extends React.PureComponent {
 
   regPrintable (key, node) {
     console.log('reg printable', key, node);
-    if (this.printableRegistry[key]) return;
+    if (this.printableRegistry[key] !== undefined) return;
     setTimeout(() => this.setState({
       printableNodes: this.state.printableNodes.concat(node),
     }), 0);
@@ -44,11 +44,11 @@ export default class PrintProvider extends React.PureComponent {
   }
 
   unregPrintable (key) {
-    if (!this.printableRegistry[key] || this.state.isInPrintPreview) return;
+    if (this.printableRegistry[key] === undefined || this.state.isInPrintPreview) return;
     this.setState({
       printableNodes: spliced(this.state.printableNodes, this.printableRegistry[key]),
     });
-    this.printableRegistry = Object.assign({}, this.printableRegistry, { [key]: false });
+    this.printableRegistry = Object.assign({}, this.printableRegistry, { [key]: undefined });
   }
 
   render () {
