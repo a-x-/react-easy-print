@@ -30,8 +30,8 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "react": "^15.6.1",
-    "prop-types": "^15.5.10"
+    "react": "15.x.x",
+    "prop-types": "15.x.x"
   },
   "engines": {
     "node": ">=8.0"
