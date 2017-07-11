@@ -96,7 +96,7 @@ Should wrap printable element(s).
 
 ### NoPrint
 Should wrap nested to Print nodes to ignore them.
-Useful in the come complex cases. You might not need `NoPrint`.
+Useful in the some complex cases. You might not need the `NoPrint`.
 
 | prop |   |
 | --- | --- |
@@ -108,4 +108,3 @@ Useful in the come complex cases. You might not need `NoPrint`.
 
 ## todo
 * tests
-
