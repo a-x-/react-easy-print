@@ -25,8 +25,6 @@ export default class PrintProvider extends React.PureComponent {
       debug('toggle print mode', window.matchMedia('print').matches);
       this.setState({ isInPrintPreview: window.matchMedia('print').matches });
     };
-
-    // setTimeout(() => {debug('go to print mode'); this.setState({isInPrintPreview: true});}, 5000); // todo: remove
   }
 
   getChildContext () {
@@ -76,6 +74,7 @@ export default class PrintProvider extends React.PureComponent {
 PrintProvider.propTypes = {
   loose:    PropTypes.bool,
   children: PropTypes.node.isRequired,
+  invert:   PropTypes.bool,
 };
 
 PrintProvider.childContextTypes = {
@@ -100,10 +99,11 @@ export class Print extends React.PureComponent {
     }
   }
   render () {
-    const { children, main, exclusive } = this.props;
+    const { children, main, exclusive, invert } = this.props;
     const main_ = main ? s.main : '';
     const excl_ = exclusive ? s.exclusive : '';
-    return <div className={`${ s.print } ${ main_ } ${ excl_ }`}>{ children }</div>;
+    const invert = invert ? s.invert : '';
+    return <div className={`${ s.print } ${ main_ } ${ excl_ } ${ invert_ }`}>{ children }</div>;
   }
 }
 Print.propTypes = {
