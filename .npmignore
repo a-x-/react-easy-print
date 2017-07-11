@@ -1,5 +1,5 @@
 webpack.config.js
-.eslintrc
+.eslintrc.js
 .babelrc
 yarn.lock
 
