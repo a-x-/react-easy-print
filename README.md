@@ -83,6 +83,10 @@ p.s. `print mode` is when browser's print preview opened (e.g. after `^p` or `‚å
 ### PrintProvider
 Should be placed in the layout.
 
+| prop |   |
+| --- | --- |
+| loose | simple mode without re-render only printable nodes. Uses css visibility trick. It's not appliable if you have complex nested printable node with offsets |
+
 ### Print
 Should wrap printable element(s).
 
