@@ -65,7 +65,7 @@ p.s. `print mode` is when browser's print preview opened (e.g. after `^p` or `‚å
 </PrintProvider>
 ```
 
-**example 4** garantee correct main printable element position:
+**example 4** guarantee correct main printable element position:
 ```jsx
 ...
 <Modal>             //
