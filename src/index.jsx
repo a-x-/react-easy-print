@@ -65,7 +65,7 @@ export class Print extends React.PureComponent {
   constructor (props, context) {
     super(props);
     console.log('init printable')
-    props.name && context.printProvider.regPrintable(props.name, this);
+    props.name && context.printProvider.regPrintable(props.name, <Print {...props}/>);
   }
   render () {
     const { children, main, exclusive } = this.props;
