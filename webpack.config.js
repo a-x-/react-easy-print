@@ -7,8 +7,8 @@ module.exports = {
 
   output: {
     filename: 'build/[name].js',
-    library: 'react-easy-print',
-    libraryTarget: 'commonjs-module',
+    library: 'ReactEasyPrint',
+    libraryTarget: 'umd',
   },
 
   externals: {
@@ -21,7 +21,7 @@ module.exports = {
     },
     react: {
       root: 'React',
-      'commonjs-module': 'React',
+      'commonjs-module': 'react',
       commonjs2: 'react',
       commonjs: 'react',
       amd: 'react',
