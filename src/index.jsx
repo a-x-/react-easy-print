@@ -80,7 +80,7 @@ Print.propTypes = {
   main: PropTypes.bool,
   exclusive: PropTypes.bool,
 };
-PrintProvider.contextTypes = PrintProvider.childContextTypes;
+Print.contextTypes = PrintProvider.childContextTypes;
 
 export class NoPrint extends React.PureComponent {
   render () {
