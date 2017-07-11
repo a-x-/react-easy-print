@@ -1,6 +1,6 @@
 {
   "name": "react-easy-print",
-  "description": "Powerful react HOC for easy printing components marked as printable",
+  "description": "Powerful react component for easy printing components marked as printable",
   "main": "build",
   "scripts": {
     "test": "ava",

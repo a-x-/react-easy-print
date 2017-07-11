@@ -1,6 +1,6 @@
 # react-easy-print [![Build Status](https://travis-ci.org/a-x-/react-easy-print.svg?branch=master)](https://travis-ci.org/a-x-/react-easy-print)
 
-Powerful react HOC for easy printing components marked as printable
+Powerful react component for easy printing components marked as printable
 
 ## usage
 
