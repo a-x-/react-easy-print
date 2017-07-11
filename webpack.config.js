@@ -8,7 +8,24 @@ module.exports = {
   output: {
     filename: 'build/[name].js',
     library: 'react-easy-print',
-    libraryTarget: "commonjs2",
+    libraryTarget: 'commonjs-module',
+  },
+
+  externals: {
+    'prop-types': {
+      root: 'PropTypes',
+      'commonjs-module': 'prop-types',
+      commonjs2: 'prop-types',
+      commonjs: 'prop-types',
+      amd: 'prop-types',
+    },
+    react: {
+      root: 'React',
+      'commonjs-module': 'react',
+      commonjs2: 'react',
+      commonjs: 'react',
+      amd: 'react',
+    },
   },
 
   context: path.join(__dirname, 'src'),
@@ -45,7 +62,6 @@ module.exports = {
               useBuiltIns: true,
             }],
             'react',
-            'stage-2',
           ],
           cacheDirectory: true,
           plugins: [
@@ -53,7 +69,6 @@ module.exports = {
               mode: 'remove',
               removeImport: true,
             }],
-            'transform-runtime',
           ]
         }
       },
@@ -78,7 +93,7 @@ module.exports = {
             options: {
               plugins: [
                 require('autoprefixer')({
-                  browsers: ['last 1 version'],
+                  browsers: ['last 2 version'],
                 }),
                 require('postcss-nested')({}),
               ],
