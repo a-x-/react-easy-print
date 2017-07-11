@@ -45,6 +45,7 @@ export default class PrintProvider extends React.PureComponent {
 
   unregPrintable (key) {
     if (this.printableRegistry[key] === undefined || this.state.isInPrintPreview) return;
+    console.log('wtf', this.state, Array.isArray(this.state.printableNodes), this.printableRegistry);
     this.setState({
       printableNodes: spliced(this.state.printableNodes, this.printableRegistry[key]),
     });
