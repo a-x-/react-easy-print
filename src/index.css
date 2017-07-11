@@ -2,7 +2,7 @@
   display: none;
 }
 @media print {
-  .wrap {
+  .wrap._loose {
     visibility: hidden;
   }
   .print {

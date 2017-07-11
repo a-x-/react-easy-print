@@ -8,6 +8,11 @@ const spliced = (array, i) => {
   return array_;
 };
 
+const debug = (...args) => {
+  if (!localStorage['react-easy-print-debug']) return;
+  console.log(...args); // eslint-disable-line
+};
+
 export default class PrintProvider extends React.PureComponent {
   constructor (props) {
     super(props);
@@ -17,11 +22,11 @@ export default class PrintProvider extends React.PureComponent {
     };
     this.printableRegistry = {};
     window.matchMedia('print').onchange = () => {
-      console.log('toggle print mode', window.matchMedia('print').matches);
+      debug('toggle print mode', window.matchMedia('print').matches);
       this.setState({ isInPrintPreview: window.matchMedia('print').matches });
     };
 
-    // setTimeout(() => {console.log('go to print mode'); this.setState({isInPrintPreview: true});}, 5000); // todo: remove
+    // setTimeout(() => {debug('go to print mode'); this.setState({isInPrintPreview: true});}, 5000); // todo: remove
   }
 
   getChildContext () {
@@ -35,7 +40,7 @@ export default class PrintProvider extends React.PureComponent {
   }
 
   regPrintable (key, node) {
-    console.log('reg printable', key, node);
+    debug('reg printable', key, node);
     if (this.printableRegistry[key] !== undefined) return;
     setTimeout(() => this.setState({
       printableNodes: this.state.printableNodes.concat(node),
@@ -45,7 +50,6 @@ export default class PrintProvider extends React.PureComponent {
 
   unregPrintable (key) {
     if (this.printableRegistry[key] === undefined || this.state.isInPrintPreview) return;
-    console.log('wtf', this.state, Array.isArray(this.state.printableNodes), this.printableRegistry);
     this.setState({
       printableNodes: spliced(this.state.printableNodes, this.printableRegistry[key]),
     });
@@ -57,15 +61,16 @@ export default class PrintProvider extends React.PureComponent {
     const { loose } = this.props;
     const children_ = (() => {
       if (isInPrintPreview && printableNodes.length && !loose) {
-        console.log('render printable only', printableNodes);
+        debug('render printable only', printableNodes);
         return React.Children.map(printableNodes, (child, key) => {
           return React.cloneElement(child, { key });
         });
       }
-      console.log('render everything', isInPrintPreview, printableNodes.length, !loose);
+      debug('render everything', isInPrintPreview, printableNodes.length, !loose);
       return this.props.children;
     })();
-    return <div className={ s.wrap }>{ children_ }</div>;
+    const loose_ = loose ? s.loose : '';
+    return <div className={`${ s.wrap } ${ loose_ }`}>{ children_ }</div>;
   }
 }
 PrintProvider.propTypes = {
@@ -84,13 +89,13 @@ PrintProvider.childContextTypes = {
 export class Print extends React.PureComponent {
   componentDidMount() {
     if (this.props.name) {
-      console.log('init printable', this.props.name);
+      debug('init printable', this.props.name);
       this.context.printProvider.regPrintable(this.props.name, <Print {...this.props}/>);
     }
   }
   componentWillUnmount() {
     if (this.props.name) {
-      console.log('remove printable', this.props.name);
+      debug('remove printable', this.props.name);
       this.context.printProvider.unregPrintable(this.props.name);
     }
   }
