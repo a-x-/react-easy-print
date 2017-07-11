@@ -15,7 +15,7 @@ import PrintProvider, { Print } from 'react-easy-print';
           <h1>some page</h1>  //
           <Header/>           // non visible in the print mode
           <Modal>             //
-            <Print>
+            <Print name="foo">
               <span>          //
                 details       // visible in the print and non-print modes
               </span>         //
@@ -35,7 +35,7 @@ p.s. `print mode` is when browser's print preview opened (e.g. after `^p` or `‚å
 ...
 <PrintProvider>
   ...                                   // non visible in the print mode
-    <Print exclusive>
+    <Print exclusive name="foo">
       Consectetur adipisicing elit.     // in the print mode visible only
       Alias, corrupti similique minus   //
     </Print>
@@ -47,7 +47,7 @@ p.s. `print mode` is when browser's print preview opened (e.g. after `^p` or `‚å
 ```jsx
 ...
 <PrintProvider>
-  <Print>                                   //
+  <Print name="foo">                        //
     ...                                     // visible in the print and non-print modes
       <div>                                 //
         ...                                 //
@@ -55,7 +55,7 @@ p.s. `print mode` is when browser's print preview opened (e.g. after `^p` or `‚å
             <Header/>                       // non visible in print mode
           </NoPrint>
         ...                                 //
-        <Print exclusive>
+        <Print exclusive name="foo">
           Consectetur adipisicing elit.     // in the print mode visible only
           Alias, corrupti similique minus   //
         </Print>
@@ -69,7 +69,7 @@ p.s. `print mode` is when browser's print preview opened (e.g. after `^p` or `‚å
 ```jsx
 ...
 <Modal>             //
-  <Print main>
+  <Print main name="foo">
     <span>          //
       details       // visible in the print and non-print modes
     </span>         //
@@ -88,6 +88,7 @@ Should wrap printable element(s).
 | --- | --- |
 | exclusive | in the print mode visible only |
 | main | garantee correct position (left, top corner) for single main printable |
+| name | unique constant name (like react's `key` prop) |
 
 ### NoPrint
 Should wrap nested to Print nodes to ignore them.

@@ -11,7 +11,7 @@ export default class PrintProvider extends React.PureComponent {
       printableRegistry: {},
     };
     window.matchMedia('print').onchange = () => {
-      console.log('change', window.matchMedia('print').matches);
+      console.log('toggle print mode', window.matchMedia('print').matches);
       this.setState({ isInPrintPreview: window.matchMedia('print').matches });
     };
 
@@ -28,7 +28,7 @@ export default class PrintProvider extends React.PureComponent {
   }
 
   regPrintable (key, node) {
-    console.log('reg', key, node);
+    console.log('reg printable', key, node);
     if (this.state.printableRegistry[key]) return;
     this.setState({
       printableNodes: this.state.printableNodes.concat(node),
@@ -63,6 +63,7 @@ PrintProvider.childContextTypes = {
 export class Print extends React.PureComponent {
   constructor (props, context) {
     super(props);
+    console.log('init printable')
     props.name && context.printProvider.regPrintable(props.name, this);
   }
   render () {
