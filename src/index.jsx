@@ -70,7 +70,8 @@ export default class PrintProvider extends React.PureComponent {
       return this.props.children;
     })();
     const loose_ = loose ? s.loose : '';
-    return <div className={`${ s.wrap } ${ loose_ }`}>{ children_ }</div>;
+    const invert_ = this.props.invert ? s.invert : '';
+    return <div className={`${ s.wrap } ${ loose_ } ${ invert_ }`}>{ children_ }</div>;
   }
 }
 PrintProvider.propTypes = {
@@ -101,11 +102,10 @@ export class Print extends React.PureComponent {
     }
   }
   render () {
-    const { children, main, exclusive, invert } = this.props;
+    const { children, main, exclusive } = this.props;
     const main_ = main ? s.main : '';
     const excl_ = exclusive ? s.exclusive : '';
-    const invert = invert ? s.invert : '';
-    return <div className={`${ s.print } ${ main_ } ${ excl_ } ${ invert_ }`}>{ children }</div>;
+    return <div className={`${ s.print } ${ main_ } ${ excl_ }`}>{ children }</div>;
   }
 }
 Print.propTypes = {
