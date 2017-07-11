@@ -5,7 +5,9 @@ module.exports = {
   entry: { index: '.' },
 
   output: {
-    filename: 'build/[name].js'
+    filename: 'build/[name].js',
+    library: 'react-easy-print',
+    libraryTarget: "commonjs2",
   },
 
   context: path.join(__dirname, "src"),
@@ -84,9 +86,5 @@ module.exports = {
         ]
       }
     ]
-  },
-  externals: {
-    'react': 'React',
-    'react-dom': 'ReactDOM',
   },
 }
