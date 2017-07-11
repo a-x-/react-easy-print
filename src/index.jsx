@@ -6,7 +6,7 @@ const spliced = (array, i) => {
   const array_ = [...array];
   array_.splace(i, 1);
   return array_;
-}
+};
 
 export default class PrintProvider extends React.PureComponent {
   constructor (props) {
@@ -42,12 +42,12 @@ export default class PrintProvider extends React.PureComponent {
     }), 0);
   }
 
-  unregPrintable (key, node) {
+  unregPrintable (key) {
     if (!this.state.printableRegistry[key]) return;
     this.setState({
-      printableNodes: spliced(this.state.printableNodes, this.state.printableRegistry[key])
+      printableNodes: spliced(this.state.printableNodes, this.state.printableRegistry[key]),
       printableRegistry: Object.assign({}, this.state.printableRegistry, { [key]: false }),
-    })
+    });
   }
 
   render () {
@@ -82,13 +82,13 @@ export class Print extends React.PureComponent {
   componentDidMount() {
     if (this.props.name) {
       console.log('init printable', this.props.name);
-      context.printProvider.regPrintable(this.props.name, <Print {...this.props}/>);
+      this.context.printProvider.regPrintable(this.props.name, <Print {...this.props}/>);
     }
   }
   componentWillUnmount() {
     if (this.props.name) {
       console.log('remove printable', this.props.name);
-      context.printProvider.unregPrintable(this.props.name, <Print {...this.props}/>);
+      this.context.printProvider.unregPrintable(this.props.name);
     }
   }
   render () {

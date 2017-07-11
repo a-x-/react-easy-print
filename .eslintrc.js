@@ -21,6 +21,11 @@ module.exports = {
     "react"
   ],
   "rules": {
+    "no-console": [
+      "warn", {
+        "allow": ["warn", "error"],
+      },
+    ],
     "indent": [
       "warn",
       2
