@@ -57,11 +57,11 @@ export default class PrintProvider extends React.PureComponent {
     const children_ = (() => {
       if (isInPrintPreview && printableNodes.length && !loose) {
         console.log('render printable only', printableNodes);
-        React.Children.map(printableNodes, (child, key) => {
+        return React.Children.map(printableNodes, (child, key) => {
           return React.cloneElement(child, { key });
         });
       }
-      console.log('render everything');
+      console.log('render everything', isInPrintPreview, printableNodes.length, !loose);
       return this.props.children;
     })();
     return <div className={ s.wrap }>{ children_ }</div>;
