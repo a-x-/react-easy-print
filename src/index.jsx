@@ -29,6 +29,7 @@ export default class PrintProvider extends React.PureComponent {
       printProvider: {
         isPrint: window.matchMedia('print').matches,
         regPrintable: this.regPrintable.bind(this),
+        unregPrintable: this.unregPrintable.bind(this),
       },
     };
   }
