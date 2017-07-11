@@ -38,8 +38,9 @@ export default class PrintProvider extends React.PureComponent {
   }
 
   regPrintable (key, node) {
+    const loose = this.props.loose || this.props.invert;
     debug('reg printable', key, node);
-    if (this.printableRegistry[key] !== undefined || this.props.loose) return;
+    if (this.printableRegistry[key] !== undefined || loose) return;
     setTimeout(() => this.setState({
       printableNodes: this.state.printableNodes.concat(node),
     }), 0);
@@ -47,7 +48,8 @@ export default class PrintProvider extends React.PureComponent {
   }
 
   unregPrintable (key) {
-    if (this.printableRegistry[key] === undefined || this.state.isInPrintPreview || this.props.loose) return;
+    const loose = this.props.loose || this.props.invert;
+    if (this.printableRegistry[key] === undefined || this.state.isInPrintPreview || loose) return;
     this.setState({
       printableNodes: spliced(this.state.printableNodes, this.printableRegistry[key]),
     });
@@ -56,7 +58,7 @@ export default class PrintProvider extends React.PureComponent {
 
   render () {
     const { isInPrintPreview, printableNodes } = this.state;
-    const { loose } = this.props;
+    const loose = this.props.loose || this.props.invert;
     const children_ = (() => {
       if (isInPrintPreview && printableNodes.length && !loose) {
         debug('render printable only', printableNodes);
