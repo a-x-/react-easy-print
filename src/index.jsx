@@ -21,7 +21,7 @@ export default class PrintProvider extends React.PureComponent {
       this.setState({ isInPrintPreview: window.matchMedia('print').matches });
     };
 
-    setTimeout(() => {console.log('go to print mode'); this.setState({isInPrintPreview: true});}, 2000); // todo: remove
+    setTimeout(() => {console.log('go to print mode'); this.setState({isInPrintPreview: true});}, 5000); // todo: remove
   }
 
   getChildContext () {
