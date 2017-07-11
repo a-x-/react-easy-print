@@ -4,8 +4,7 @@ import s from './index.css';
 
 const spliced = (array, i) => {
   const array_ = [...array];
-  console.log(array, array_);
-  try{array_.splace(i, 1);}catch(e){return [];}//todo: tmp
+  array_.splice(i, 1);
   return array_;
 };
 
