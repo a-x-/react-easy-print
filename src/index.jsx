@@ -21,7 +21,7 @@ export default class PrintProvider extends React.PureComponent {
       this.setState({ isInPrintPreview: window.matchMedia('print').matches });
     };
 
-    setTimeout(() => this.setState({isInPrintPreview: true}), 1500); // todo: remove
+    setTimeout(() => {console.log('go to print mode'); this.setState({isInPrintPreview: true});}, 2000); // todo: remove
   }
 
   getChildContext () {
@@ -43,7 +43,7 @@ export default class PrintProvider extends React.PureComponent {
   }
 
   unregPrintable (key) {
-    if (!this.state.printableRegistry[key]) return;
+    if (!this.state.printableRegistry[key] || this.state.isInPrintPreview) return;
     this.setState({
       printableNodes: spliced(this.state.printableNodes, this.state.printableRegistry[key]),
       printableRegistry: Object.assign({}, this.state.printableRegistry, { [key]: false }),
@@ -55,12 +55,12 @@ export default class PrintProvider extends React.PureComponent {
     const { loose } = this.props;
     const children_ = (() => {
       if (isInPrintPreview && printableNodes.length && !loose) {
-        console.log('render printable only', printableNodes)
+        console.log('render printable only', printableNodes);
         React.Children.map(printableNodes, (child, key) => {
           return React.cloneElement(child, { key });
         });
       }
-      console.log('render everything')
+      console.log('render everything');
       return this.props.children;
     })();
     return <div className={ s.wrap }>{ children_ }</div>;
