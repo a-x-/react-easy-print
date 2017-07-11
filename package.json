@@ -27,6 +27,9 @@
     "webpack": "^3.1.0"
   },
   "dependencies": {
+    "babel-eslint": "^7.2.3",
+    "eslint": "^4.2.0",
+    "eslint-plugin-react": "^7.1.0",
     "prop-types": "^15.5.10",
     "react": "^15.6.1"
   },

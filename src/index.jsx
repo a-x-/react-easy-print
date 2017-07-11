@@ -2,6 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import s from './index.css';
 
+const spliced = (array, i) => {
+  const array_ = [...array];
+  array_.splace(i, 1);
+  return array_;
+}
+
 export default class PrintProvider extends React.PureComponent {
   constructor (props) {
     super(props);
@@ -15,7 +21,7 @@ export default class PrintProvider extends React.PureComponent {
       this.setState({ isInPrintPreview: window.matchMedia('print').matches });
     };
 
-    setTimeout(() => this.setState({isInPrintPreview: true}), 500);
+    setTimeout(() => this.setState({isInPrintPreview: true}), 1500); // todo: remove
   }
 
   getChildContext () {
@@ -30,10 +36,18 @@ export default class PrintProvider extends React.PureComponent {
   regPrintable (key, node) {
     console.log('reg printable', key, node);
     if (this.state.printableRegistry[key]) return;
-    this.setState({
+    setTimeout(() => this.setState({
       printableNodes: this.state.printableNodes.concat(node),
-      printableRegistry: Object.assign({}, this.state.printableRegistry, { [key]: true }),
-    });
+      printableRegistry: Object.assign({}, this.state.printableRegistry, { [key]: this.state.printableNodes.length }),
+    }), 0);
+  }
+
+  unregPrintable (key, node) {
+    if (!this.state.printableRegistry[key]) return;
+    this.setState({
+      printableNodes: spliced(this.state.printableNodes, this.state.printableRegistry[key])
+      printableRegistry: Object.assign({}, this.state.printableRegistry, { [key]: false }),
+    })
   }
 
   render () {
@@ -65,10 +79,17 @@ PrintProvider.childContextTypes = {
 };
 
 export class Print extends React.PureComponent {
-  constructor (props, context) {
-    super(props);
-    console.log('init printable')
-    props.name && context.printProvider.regPrintable(props.name, <Print {...props}/>);
+  componentDidMount() {
+    if (this.props.name) {
+      console.log('init printable', this.props.name);
+      context.printProvider.regPrintable(this.props.name, <Print {...this.props}/>);
+    }
+  }
+  componentWillUnmount() {
+    if (this.props.name) {
+      console.log('remove printable', this.props.name);
+      context.printProvider.unregPrintable(this.props.name, <Print {...this.props}/>);
+    }
   }
   render () {
     const { children, main, exclusive } = this.props;
