@@ -74,6 +74,7 @@ PrintProvider.propTypes = {
 PrintProvider.childContextTypes = {
   printProvider: PropTypes.shape({
     regPrintable: PropTypes.func.isRequired,
+    unregPrintable: PropTypes.func.isRequired,
     isPrint: PropTypes.bool.isRequired,
   }).isRequired,
 };
