@@ -1,5 +1,7 @@
 # react-easy-print [![Build Status](https://travis-ci.org/a-x-/react-easy-print.svg?branch=master)](https://travis-ci.org/a-x-/react-easy-print)
 
+🚧[WIP] Powerful react HOC for easy printing components marked as printable
+
 ## usage
 
 **example 1** a page with modal window with content should be only visible in the print mode:
