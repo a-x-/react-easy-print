@@ -14,14 +14,14 @@ export default class PrintProvider extends React.PureComponent {
     this.state = {
       isInPrintPreview: false,
       printableNodes: [],
-      printableRegistry: {},
     };
+    this.printableRegistry = {};
     window.matchMedia('print').onchange = () => {
       console.log('toggle print mode', window.matchMedia('print').matches);
       this.setState({ isInPrintPreview: window.matchMedia('print').matches });
     };
 
-    setTimeout(() => {console.log('go to print mode'); this.setState({isInPrintPreview: true});}, 5000); // todo: remove
+    // setTimeout(() => {console.log('go to print mode'); this.setState({isInPrintPreview: true});}, 5000); // todo: remove
   }
 
   getChildContext () {
@@ -36,19 +36,19 @@ export default class PrintProvider extends React.PureComponent {
 
   regPrintable (key, node) {
     console.log('reg printable', key, node);
-    if (this.state.printableRegistry[key]) return;
+    if (this.printableRegistry[key]) return;
     setTimeout(() => this.setState({
       printableNodes: this.state.printableNodes.concat(node),
-      printableRegistry: Object.assign({}, this.state.printableRegistry, { [key]: this.state.printableNodes.length }),
     }), 0);
+    this.printableRegistry = Object.assign({}, this.printableRegistry, { [key]: this.state.printableNodes.length });
   }
 
   unregPrintable (key) {
-    if (!this.state.printableRegistry[key] || this.state.isInPrintPreview) return;
+    if (!this.printableRegistry[key] || this.state.isInPrintPreview) return;
     this.setState({
-      printableNodes: spliced(this.state.printableNodes, this.state.printableRegistry[key]),
-      printableRegistry: Object.assign({}, this.state.printableRegistry, { [key]: false }),
+      printableNodes: spliced(this.state.printableNodes, this.printableRegistry[key]),
     });
+    this.printableRegistry = Object.assign({}, this.printableRegistry, { [key]: false });
   }
 
   render () {
