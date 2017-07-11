@@ -108,3 +108,4 @@ Useful in the some complex cases. You might not need the `NoPrint`.
 
 ## todo
 * tests
+* remove react and prop-types from the bundle
