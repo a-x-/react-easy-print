@@ -83,16 +83,16 @@ Should be placed in the layout.
 
 | prop |   |   |
 | --- | --- | --- |
-| loose | *optional* | simple mode without re-render only printable nodes. Uses css visibility trick. It's not appliable if you have complex nested printable node with offsets |
+| loose | bool, *optional* | simple mode without re-render only printable nodes. Uses css visibility trick. It's not appliable if you have complex nested printable node with offsets |
 
 ### Print
 Should wrap printable element(s).
 
 | prop |   |   |
 | --- | --- | --- |
-| exclusive | *optional* | in the print mode visible only |
-| main | *optional* | garantee correct position (left, top corner) for single main printable |
-| name | **required** | unique constant name (like react's `key` prop) |
+| exclusive | bool, *optional* | in the print mode visible only |
+| main | bool, *optional* | garantee correct position (left, top corner) for single main printable |
+| name | string, **required** | unique constant name (like react's `key` prop) |
 
 ### NoPrint
 Should wrap nested to Print nodes to ignore them.
@@ -100,7 +100,7 @@ Useful in the some complex cases. You might not need the `NoPrint`.
 
 | prop |   |   |
 | --- | --- | --- |
-| force | *optional* | `display: node` instead of `visibility: hidden` |
+| force | bool, *optional* | `display: node` instead of `visibility: hidden` |
 
 ## alternatives
 * [react-print](https://github.com/captray/react-print)
