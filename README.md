@@ -81,26 +81,26 @@ p.s. `print mode` is when browser's print preview opened (e.g. after `^p` or `âŒ
 ### PrintProvider
 Should be placed in the layout.
 
-| prop |   |
-| --- | --- |
-| loose | simple mode without re-render only printable nodes. Uses css visibility trick. It's not appliable if you have complex nested printable node with offsets |
+| prop | Â  |   |
+| --- | --- | --- |
+| loose | *optional* | simple mode without re-render only printable nodes. Uses css visibility trick. It's not appliable if you have complex nested printable node with offsets |
 
 ### Print
 Should wrap printable element(s).
 
-| prop |   |
-| --- | --- |
-| exclusive | in the print mode visible only |
-| main | garantee correct position (left, top corner) for single main printable |
-| name | unique constant name (like react's `key` prop) |
+| prop |   |   |
+| --- | --- | --- |
+| exclusive | *optional* | in the print mode visible only |
+| main | *optional* | garantee correct position (left, top corner) for single main printable |
+| name | **required** | unique constant name (like react's `key` prop) |
 
 ### NoPrint
 Should wrap nested to Print nodes to ignore them.
 Useful in the some complex cases. You might not need the `NoPrint`.
 
-| prop |   |
-| --- | --- |
-| force | `display: node` instead of `visibility: hidden` |
+| prop |   |   |
+| --- | --- | --- |
+| force | *optional* | `display: node` instead of `visibility: hidden` |
 
 ## alternatives
 * [react-print](https://github.com/captray/react-print)
