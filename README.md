@@ -2,7 +2,28 @@
 
 ## usage
 
-**example 1** a page with modal window with content should be only visible in the print mode:
+**example 1** a page with a single printable component without anything else
+```jsx
+import PrintProvider, { Print, NoPrint } from 'react-easy-print';
+...
+<PrintProvider>
+  <NoPrint>
+    <Router>                    // 
+      <Layout>                  // invisible in the print mode
+        ...                     //
+          <Print name="foo">
+            <span>              //
+              details           // visible in the print and non-print modes
+            </span>             //
+          </Print>
+        ...                     //
+      </Layout>                 // invisible in the print mode
+    </Router>                   //
+  </NoPrint>
+</PrintProvider>
+```
+
+**example 2** a page with modal window with content should be only visible in the print mode:
 
 ```jsx
 import PrintProvider, { Print } from 'react-easy-print';
@@ -13,7 +34,7 @@ import PrintProvider, { Print } from 'react-easy-print';
       ...                     //
         <div>                 //
           <h1>some page</h1>  //
-          <Header/>           // non visible in the print mode
+          <Header/>           // invisible in the print mode
           <Modal>             //
             <Print name="foo">
               <span>          //
@@ -21,7 +42,7 @@ import PrintProvider, { Print } from 'react-easy-print';
               </span>         //
             </Print>
           </Modal>            //
-        </div>                // non visible in the print mode
+        </div>                // invisible in the print mode
       ...                     //
     </Layout>                 //
   </Router>
@@ -30,20 +51,20 @@ import PrintProvider, { Print } from 'react-easy-print';
 
 p.s. `print mode` is when browser's print preview opened (e.g. after `^p` or `‚åòp` pressed).
 
-**example 2** special content should be visible in print mode only:
+**example 3** special content should be visible in print mode only:
 ```jsx
 ...
 <PrintProvider>
-  ...                                   // non visible in the print mode
+  ...                                   // invisible in the print mode
     <Print exclusive name="foo">
       Consectetur adipisicing elit.     // in the print mode visible only
       Alias, corrupti similique minus   //
     </Print>
-  ...                                   // non visible in the print mode
+  ...                                   // invisible in the print mode
 </PrintProvider>
 ```
 
-**example 3** complex case: almost all content visible in print mode, but some doesn't and another only in print mode visible:
+**example 4** complex case: almost all content visible in print mode, but some doesn't and another only in print mode visible:
 ```jsx
 ...
 <PrintProvider>
@@ -52,7 +73,7 @@ p.s. `print mode` is when browser's print preview opened (e.g. after `^p` or `‚å
       <div>                                 //
         ...                                 //
           <NoPrint>
-            <Header/>                       // non visible in print mode
+            <Header/>                       // invisible in print mode
           </NoPrint>
         ...                                 //
         <Print exclusive name="foo">
@@ -65,7 +86,7 @@ p.s. `print mode` is when browser's print preview opened (e.g. after `^p` or `‚å
 </PrintProvider>
 ```
 
-**example 4** guarantee correct main printable element position:
+**example 5** guarantee correct main printable element position:
 ```jsx
 ...
 <Modal>             //
