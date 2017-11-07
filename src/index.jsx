@@ -20,18 +20,19 @@ export default class PrintProvider extends React.PureComponent {
       isInPrintPreview: false,
       printableNodes: [],
     };
-	  
+    
     this.printableRegistry = {};
     const isBrowser = typeof window !== 'undefined';
     if (isBrowser) {
-		  window.matchMedia('print').onchange = () => {
-			  debug('toggle print mode', window.matchMedia('print').matches);
-			  this.setState({ isInPrintPreview: window.matchMedia('print').matches });
-		  };
-	  }
+      window.matchMedia('print').onchange = () => {
+        debug('toggle print mode', window.matchMedia('print').matches);
+        this.setState({ isInPrintPreview: window.matchMedia('print').matches });
+      };
+    }
   }
 
   getChildContext () {
+    const isBrowser = typeof window !== 'undefined';
     return {
       printProvider: {
         isPrint: isBrowser && window.matchMedia('print').matches,
