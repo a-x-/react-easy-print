@@ -129,3 +129,5 @@ Useful in the some complex cases. You might not need the `NoPrint`.
 
 ## todo
 * tests
+* avoid re-renders (use React portals if React.version >= 16)
+* build files in npm registry only (remove build/ from git-repo)
