@@ -1,4 +1,4 @@
-# react-easy-print [![Build Status](https://travis-ci.org/a-x-/react-easy-print.svg?branch=master)](https://travis-ci.org/a-x-/react-easy-print)
+# react-easy-print
 
 ## usage
 
