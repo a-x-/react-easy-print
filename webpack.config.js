@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-console.log(process.env.NODE_ENV)
+console.log(process.env.NODE_ENV);
 
 module.exports = {
   entry: { index: '.' },
@@ -56,7 +56,7 @@ module.exports = {
           presets: [
             ['env', {
               targets: {
-                browsers: ['last 2 versions'],
+                browsers: ['>2%', 'last 2 Chrome versions', 'last 1 Safari version'],
               },
               modules: false,
               useBuiltIns: true,

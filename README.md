@@ -1,10 +1,12 @@
 # react-easy-print [![Build Status](https://travis-ci.org/a-x-/react-easy-print.svg?branch=master)](https://travis-ci.org/a-x-/react-easy-print)
 
-## usage
+## Usage
+
+We prepared some recipes for you.
 
 **example 1** a page with a single printable component without anything else
 ```jsx
-import PrintProvider, { Print, NoPrint } from 'react-easy-print';
+import { PrintProvider, Print, NoPrint } from 'react-easy-print';
 ...
 <PrintProvider>
   <NoPrint>
@@ -26,7 +28,7 @@ import PrintProvider, { Print, NoPrint } from 'react-easy-print';
 **example 2** a page with modal window with content should be only visible in the print mode:
 
 ```jsx
-import PrintProvider, { Print } from 'react-easy-print';
+import { PrintProvider, Print } from 'react-easy-print';
 ...
 <PrintProvider>
   <Router>
@@ -65,6 +67,9 @@ p.s. `print mode` is when browser's print preview opened (e.g. after `^p` or `‚å
 ```
 
 **example 4** complex case: almost all content visible in print mode, but some doesn't and another only in print mode visible:
+
+// ???: <PrintProvider invert/> instead of <PrintProvider><Print>
+
 ```jsx
 ...
 <PrintProvider>
@@ -123,11 +128,39 @@ Useful in the some complex cases. You might not need the `NoPrint`.
 | --- | --- | --- |
 | force | bool, *optional* | `display: node` instead of `visibility: hidden` |
 
-## alternatives
+----
+
+
+## Some details
+### Lite (css) mode
+
+Uses visibility cool hack:
+
+```css
+.parent { visibility: hidden; }
+.child { visibility: visible; } /* overrides parent hidden style */
+```
+
+### Hard (portal) mode
+
+When `{ position: absolute; left: 0; top: 0; }` does not work.
+
+Renders all `<Print>` wrapped children in a separate root
+
+### Advanced customization
+
+You can access `context.printProvider.isPrint` in any your component.
+
+`isPrint` uses `window.matchMedia('print').matches` and subscribed to `window.matchMedia('print').onchange`
+
+## Alternatives
 * [react-print](https://github.com/captray/react-print)
 * [react-detect-print](https://github.com/tacomanator/react-detect-print)
 
-## todo
+## Roadmap
 * tests
 * avoid re-renders (use React portals if React.version >= 16)
 * build files in npm registry only (remove build/ from git-repo)
+* SSR (server-side rendering) compatibility?
+* flowjs and typescript typings
+* print options (page format, switch off default columns)
