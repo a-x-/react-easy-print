@@ -1,10 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
-console.log(process.env.NODE_ENV)
 
 module.exports = {
   entry: { index: '.' },
-
   output: {
     filename: 'build/[name].js',
     library: 'ReactEasyPrint',

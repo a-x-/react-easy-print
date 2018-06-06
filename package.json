@@ -13,6 +13,7 @@
   "devDependencies": {
     "autoprefixer": "^7.1.2",
     "babel": "^6.23.0",
+    "babel-core": "^6.26.3",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.1",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.6",
@@ -24,6 +25,9 @@
     "eslint-plugin-react": "^7.1.0",
     "postcss-loader": "^2.0.6",
     "postcss-nested": "^2.0.2",
+    "prop-types": "^15.6.1",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
     "style-loader": "^0.18.2",
     "webpack": "^3.1.0"
   },
