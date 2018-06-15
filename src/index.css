@@ -13,6 +13,11 @@
     left: 0;
     top: 0;
   }
+  .print._break {
+    position: relative;
+    left: 0;
+    top: 0;
+  }  
   .print._exclusive {
     display: block;
   }
