@@ -1,15 +1,16 @@
 {
   "name": "react-easy-print",
   "description": "Powerful react component for easy printing",
-  "main": "build",
+  "main": "build/umd",
   "module": "build/es",
   "files": [
     "src"
   ],
   "scripts": {
     "prebuild": "npm i && rm -rf build",
-    "build": "npm run build:es",
-    "build:es": "NODE_ENV=production babel src -d build/es -s --minified --compact",
+    "build": "npm run build:es && npm run build:umd",
+    "build:es": "NODE_ENV=es-production babel src -d build/es -s --minified --compact",
+    "build:umd": "NODE_ENV=umd-production rollup -c",
     "preversion": "npm run build && git add build && git commit build",
     "postversion": "git push && git push --tags && npm publish"
   },
@@ -37,7 +38,7 @@
     "rollup-plugin-postcss": "^1.6.2",
     "rollup-plugin-replace": "^2.0.0",
     "rollup-plugin-size-snapshot": "^0.5.1",
-    "rollup-plugin-uglify": "^4.0.0"
+    "rollup-plugin-terser": "^1.0.1"
   },
   "dependencies": {},
   "peerDependencies": {

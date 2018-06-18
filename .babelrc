@@ -1,8 +1,7 @@
 {
   "sourceMaps": true,
   "ignore": [
-    "node_moudles",
-    "*.src"
+    "node_moudles"
   ],
   "presets": [
     ["env", {
@@ -35,11 +34,19 @@
         }]
       ]
     },
-    "production": {
+    "es-production": {
       "plugins": [
         ["transform-import-css", {
           "generateScopedName": "easy-print-[name]-[local]-[hash:base64:4]"
         }],
+        ["transform-react-remove-prop-types", {
+          "mode": "remove",
+          "removeImport": true
+        }]
+      ]
+    },
+    "umd-production": {
+      "plugins": [
         ["transform-react-remove-prop-types", {
           "mode": "remove",
           "removeImport": true
