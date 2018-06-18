@@ -26,7 +26,7 @@
         "transform-es2015-modules-commonjs",
         ["css-modules-transform", {
           "extractCss": {
-            "dir": "./build",
+            "dir": "./lib",
             "relativeRoot": "./src/",
             "filename": "[path]/[name].css"
           },

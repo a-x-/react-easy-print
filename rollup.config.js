@@ -66,14 +66,14 @@ export default [
   // we use just babel for esm that is keep separate files, little bit faster (~1.5s) and compact (~8KiB)
   // {
   //   input,
-  //   output: { file: 'build/es/index.js', format: 'es', name, globals, sourcemap: true, },
+  //   output: { file: 'lib/es/index.js', format: 'es', name, globals, sourcemap: true, },
   //   external: Object.keys(globals),
   //   plugins,
   // },
 
   {
     input,
-    output: { file: 'build/umd/index.js', format: 'umd', name, globals, sourcemap: true, },
+    output: { file: 'lib/umd/index.js', format: 'umd', name, globals, sourcemap: true, },
     external: Object.keys(globals),
     plugins,
   }

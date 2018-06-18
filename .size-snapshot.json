@@ -1,5 +1,5 @@
 {
-  "build/es/index.js": {
+  "lib/es/index.js": {
     "bundled": 18529,
     "minified": 10261,
     "gzipped": 3510,
@@ -13,12 +13,12 @@
       }
     }
   },
-  "build/index.js": {
+  "lib/index.js": {
     "bundled": 19688,
     "minified": 8867,
     "gzipped": 3314
   },
-  "build/umd/index.js": {
+  "lib/umd/index.js": {
     "bundled": 19581,
     "minified": 8728,
     "gzipped": 3258
