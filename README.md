@@ -131,3 +131,8 @@ Useful in the some complex cases. You might not need the `NoPrint`.
 * tests
 * avoid re-renders (use React portals if React.version >= 16)
 * build files in npm registry only (remove build/ from git-repo)
+
+----
+
+# Sponsored with ❤️ by <a href="https://rocketbank.ru">RocketBank</a> <img src="https://user-images.githubusercontent.com/6201068/41535008-57abc544-7309-11e8-9259-4b38bc1e7370.png" width="24"/>
+Russian Fintech startup
