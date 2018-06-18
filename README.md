@@ -105,10 +105,10 @@ Should wrap printable element(s).
 
 | prop |   |   |
 | --- | --- | --- |
-| printOnly | bool, *optional* | visible only in the print mode |
-| exclusive | bool, *optional* | *depricated* alias for printOnly |
+| printOnly | bool, *optional* | in the print mode visible only |
+| ~~exclusive~~ | bool, *optional* | *deprecated* alias for printOnly |
 | single | bool, *optional* | garantee correct position (left, top corner) for single main printable |
-| main | bool, *optional* | *depricated* alias for single |
+| ~~main~~ | bool, *optional* | *deprecated* alias for single |
 | name | string, **required** | unique constant name (like react's `key` prop) |
 
 ### NoPrint
