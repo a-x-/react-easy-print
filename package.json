@@ -4,6 +4,7 @@
   "main": "build/umd",
   "module": "build/es",
   "files": [
+    "build",
     "src"
   ],
   "scripts": {
@@ -11,7 +12,7 @@
     "build": "npm run build:es && npm run build:umd",
     "build:es": "NODE_ENV=es-production babel src -d build/es -s --minified --compact",
     "build:umd": "NODE_ENV=umd-production rollup -c",
-    "preversion": "npm run build && git add build && git commit build",
+    "preversion": "npm run build && git add build && git commit -am build",
     "postversion": "git push && git push --tags && npm publish"
   },
   "repository": "git@github.com:a-x-/react-easy-print.git",
