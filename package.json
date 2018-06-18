@@ -1,16 +1,17 @@
 {
   "name": "react-easy-print",
   "description": "Powerful react component for easy printing",
-  "main": "build/umd",
-  "module": "build/es",
+  "main": "lib/umd",
+  "module": "lib/es",
   "files": [
-    "build",
+    "lib",
     "src"
   ],
+  "sideEffects": false,
   "scripts": {
-    "prebuild": "npm i && rm -rf build",
+    "prebuild": "npm i && rm -rf lib",
     "build": "npm run build:es && npm run build:umd",
-    "build:es": "NODE_ENV=es-production babel src -d build/es -s --minified --compact",
+    "build:es": "NODE_ENV=es-production babel src -d lib/es -s --minified --compact",
     "build:umd": "NODE_ENV=umd-production rollup -c",
     "preversion": "npm run build",
     "postversion": "git push && git push --tags && npm publish"
