@@ -134,8 +134,9 @@ Useful in the some complex cases. You might not need the `NoPrint`.
 
 * [ ] [jest tests #15](https://github.com/a-x-/react-easy-print/issues/15)
 * [x] [don't store build files in the repo. (use npm registry) #6](https://github.com/a-x-/react-easy-print/issues/6)
-* [ ] [print options (page format, switch off default columns)](https://github.com/a-x-/react-easy-print/issues/5)
+* [ ] [aviod blank pages #9](https://github.com/a-x-/react-easy-print/issues/9)
 * [ ] [fix printOnly #11](https://github.com/a-x-/react-easy-print/issues/11)
+* [ ] [print options (page format, switch off default columns)](https://github.com/a-x-/react-easy-print/issues/5)
 
 ----
 
