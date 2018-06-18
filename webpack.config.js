@@ -24,6 +24,13 @@ module.exports = {
       commonjs: 'react',
       amd: 'react',
     },
+    'react-dom': {
+      root: 'ReactDOM',
+      'commonjs-module': 'react-dom',
+      commonjs2: 'react-dom',
+      commonjs: 'react-dom',
+      amd: 'react-dom',
+    },
   },
 
   context: path.join(__dirname, 'src'),
