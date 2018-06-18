@@ -1,5 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const browsers = [
+  '>0.25%',
+  'not ie 11',
+  'not op_mini all',
+];
 
 module.exports = {
   entry: { index: '.' },
@@ -48,6 +54,7 @@ module.exports = {
     }),
     process.env.NODE_ENV === 'production' ? new webpack.optimize.UglifyJsPlugin() : null,
     new webpack.optimize.ModuleConcatenationPlugin(), // webpack3
+    new BundleAnalyzerPlugin(),
   ].filter(v => v),
 
   module: {
@@ -61,7 +68,7 @@ module.exports = {
           presets: [
             ['env', {
               targets: {
-                browsers: ['last 2 versions'],
+                browsers,
               },
               modules: false,
               useBuiltIns: true,
@@ -98,7 +105,7 @@ module.exports = {
             options: {
               plugins: [
                 require('autoprefixer')({
-                  browsers: ['last 2 version'],
+                  browsers,
                 }),
                 require('postcss-nested')({}),
               ],
