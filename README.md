@@ -8,7 +8,7 @@
 
 ## Usage
 
-**example 1** a page with a single printable component without anything else 
+**example 1** a page with a single printable component without anything else
 ```jsx
 import PrintProvider, { Print, NoPrint } from 'react-easy-print';
 ...
@@ -126,7 +126,7 @@ Useful in the some complex cases. You might not need the `NoPrint`.
 ## Roadmap
 
 * [ ] [jest tests #15](https://github.com/a-x-/react-easy-print/issues/15)
-* [ ] [don't store build files in the repo. (use npm registry) #6](https://github.com/a-x-/react-easy-print/issues/6)
+* [x] [don't store build files in the repo. (use npm registry) #6](https://github.com/a-x-/react-easy-print/issues/6)
 * [ ] [print options (page format, switch off default columns)](https://github.com/a-x-/react-easy-print/issues/5)
 * [ ] [fix printOnly #11](https://github.com/a-x-/react-easy-print/issues/11)
 

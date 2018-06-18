@@ -1,0 +1,15 @@
+._exclusive {
+  display: none;
+}
+
+@media print {
+  .root {
+    visibility: visible; /* visible element even nested in the hidden one */
+  }
+  ._main {
+    visibility: visible;
+  }
+  ._exclusive {
+    display: block;
+  }
+}

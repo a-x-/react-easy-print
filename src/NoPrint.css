@@ -1,0 +1,8 @@
+@media print {
+  .root {
+    visibility: hidden;
+  }
+  ._force {
+    display: none;
+  }
+}

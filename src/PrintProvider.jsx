@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import s from './styles.css';
+import s from './PrintProvider.css';
 import { spliced, debug } from './common';
 
 export const propTypes = {

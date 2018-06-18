@@ -1,0 +1,70 @@
+{
+  "sourceMaps": true,
+  "ignore": [
+    "node_moudles"
+  ],
+  "presets": [
+    ["env", {
+      "targets": {
+        "browsers": [
+          ">0.25%",
+          "not ie 11",
+          "not op_mini all"
+        ]
+      },
+      "useBuiltIns": false,
+      "modules": false
+    }],
+    "react"
+  ],
+  "plugins": [
+    "external-helpers"
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        "transform-es2015-modules-commonjs",
+        ["css-modules-transform", {
+          "extractCss": {
+            "dir": "./lib",
+            "relativeRoot": "./src/",
+            "filename": "[path]/[name].css"
+          },
+          "generateScopedName": "easy-print-[name]-[local]"
+        }]
+      ]
+    },
+    "es-production": {
+      "plugins": [
+        ["transform-import-css", {
+          "generateScopedName": "easy-print-[name]-[local]-[hash:base64:4]"
+        }],
+        ["transform-react-remove-prop-types", {
+          "mode": "remove",
+          "removeImport": true
+        }]
+      ]
+    },
+    "umd-production": {
+      "plugins": [
+        ["transform-react-remove-prop-types", {
+          "mode": "remove",
+          "removeImport": true
+        }]
+      ]
+    },
+    "development": {
+      "presets": [
+        ["env", {
+          "targets": {
+            "browsers": [
+              "last 1 Chrome versions"
+            ]
+          },
+          "useBuiltIns": false,
+          "modules": false
+        }]
+      ]
+    }
+  }
+}

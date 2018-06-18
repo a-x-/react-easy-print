@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import s from './styles.css';
+import s from './NoPrint.css';
 
 const propTypes = {
   force: PropTypes.bool,
@@ -11,7 +11,7 @@ export default class NoPrint extends React.PureComponent {
   render() {
     const { children, force } = this.props;
     const force_ = force ? s.force : '';
-    return <div className={`${s.noPrint} ${force_}`}>{children}</div>;
+    return <div className={`${s.root} ${force_}`}>{children}</div>;
   }
 }
 NoPrint.propTypes = propTypes;
