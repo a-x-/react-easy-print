@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import PrintProvider from './PrintProvider';
 import { debug } from './common';
-import s from './styles.css';
+import s from './Print.css';
 
 const propTypes = {
   name: PropTypes.string,
@@ -69,7 +69,7 @@ export default class Print extends React.Component {
     const excl_ = (exclusive || printOnly) ? s.exclusive : '';
     const isPrint = window.matchMedia('print').matches;
     const offset_ = ((printOffsetTop || printOffsetLeft ) && main_ && isPrint) ? { marginTop: -printOffsetTop, marginLeft: -printOffsetLeft} : {marginTop: 0, marginLeft: 0};
-    return <div ref={ (el) => this.printElement = el } style={offset_} className={`${s.print} ${main_} ${excl_}`}>{children}</div>;
+    return <div ref={ (el) => this.printElement = el } style={offset_} className={`${s.root} ${main_} ${excl_}`}>{children}</div>;
   }
 }
 Print.propTypes = propTypes;

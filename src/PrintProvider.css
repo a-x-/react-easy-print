@@ -1,0 +1,20 @@
+@media print {
+  .printRender {
+    width: 100%;
+    background-color: #fff;
+    z-index: 10000000;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0
+  }
+  .hiddenAll {
+    visibility: hidden;
+  }
+  .hiddenAll .print {
+    visibility: hidden;
+  }
+  .wrap._loose:not(._invert) {
+    visibility: hidden;
+  }
+}
