@@ -1,17 +1,17 @@
 # react-easy-print
 
-## usage
+## Usage
 
-**example 1** a page with a single printable component without anything else
+**example 1** a page with a single printable component without anything else 
 ```jsx
 import PrintProvider, { Print, NoPrint } from 'react-easy-print';
 ...
 <PrintProvider>
   <NoPrint>
-    <Router>                    // 
+    <Router>                    //
       <Layout>                  // invisible in the print mode
         ...                     //
-          <Print name="foo">
+          <Print single name="foo">
             <span>              //
               details           // visible in the print and non-print modes
             </span>             //
@@ -56,7 +56,7 @@ p.s. `print mode` is when browser's print preview opened (e.g. after `^p` or `‚å
 ...
 <PrintProvider>
   ...                                   // invisible in the print mode
-    <Print exclusive name="foo">
+    <Print printOnly name="foo">
       Consectetur adipisicing elit.     // in the print mode visible only
       Alias, corrupti similique minus   //
     </Print>
@@ -76,7 +76,7 @@ p.s. `print mode` is when browser's print preview opened (e.g. after `^p` or `‚å
             <Header/>                       // invisible in print mode
           </NoPrint>
         ...                                 //
-        <Print exclusive name="foo">
+        <Print printOnly name="foo">
           Consectetur adipisicing elit.     // in the print mode visible only
           Alias, corrupti similique minus   //
         </Print>
@@ -86,19 +86,7 @@ p.s. `print mode` is when browser's print preview opened (e.g. after `^p` or `‚å
 </PrintProvider>
 ```
 
-**example 5** guarantee correct main printable element position:
-```jsx
-...
-<Modal>             //
-  <Print main name="foo">
-    <span>          //
-      details       // visible in the print and non-print modes
-    </span>         //
-  </Print>
-</Modal>            //
-```
-
-## api
+## API
 ### PrintProvider
 Should be placed in the layout.
 
@@ -111,8 +99,10 @@ Should wrap printable element(s).
 
 | prop |   |   |
 | --- | --- | --- |
-| exclusive | bool, *optional* | in the print mode visible only |
-| main | bool, *optional* | garantee correct position (left, top corner) for single main printable |
+| printOnly | bool, *optional* | visible only in the print mode |
+| exclusive | bool, *optional* | *depricated* alias for printOnly |
+| single | bool, *optional* | garantee correct position (left, top corner) for single main printable |
+| main | bool, *optional* | *depricated* alias for single |
 | name | string, **required** | unique constant name (like react's `key` prop) |
 
 ### NoPrint
@@ -123,14 +113,16 @@ Useful in the some complex cases. You might not need the `NoPrint`.
 | --- | --- | --- |
 | force | bool, *optional* | `display: node` instead of `visibility: hidden` |
 
-## alternatives
+## Alternatives
 * [react-print](https://github.com/captray/react-print)
 * [react-detect-print](https://github.com/tacomanator/react-detect-print)
 
-## todo
-* tests
-* avoid re-renders (use React portals if React.version >= 16)
-* build files in npm registry only (remove build/ from git-repo)
+## Roadmap
+
+* [ ] [jest tests #15](https://github.com/a-x-/react-easy-print/issues/15)
+* [ ] [don't store build files in the repo. (use npm registry) #6](https://github.com/a-x-/react-easy-print/issues/6)
+* [ ] [print options (page format, switch off default columns)](https://github.com/a-x-/react-easy-print/issues/5)
+* [ ] [fix printOnly #11](https://github.com/a-x-/react-easy-print/issues/11)
 
 ----
 

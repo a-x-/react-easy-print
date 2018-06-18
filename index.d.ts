@@ -1,9 +1,11 @@
 declare module 'react-easy-print' {
     interface PrintProps {
         name: string;
-        main?: boolean;
         children?: React.ReactNode;
+        main?: boolean;
         exclusive?: boolean;
+        single?: boolean;
+        printOnly?: boolean;
     }
     interface NoPrintProps {
         force?: boolean,
