@@ -4,6 +4,7 @@
   "main": "build",
   "scripts": {
     "build": "NODE_ENV=production node_modules/.bin/webpack",
+    "preversion": "npm run build",
     "postversion": "git push && git push --tags && npm publish"
   },
   "repository": "git@github.com:a-x-/react-easy-print.git",
