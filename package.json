@@ -30,7 +30,8 @@
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "style-loader": "^0.18.2",
-    "webpack": "^3.1.0"
+    "webpack": "^3.1.0",
+    "webpack-bundle-analyzer": "^2.13.1"
   },
   "dependencies": {},
   "peerDependencies": {
