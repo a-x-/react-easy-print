@@ -1,5 +1,11 @@
 # react-easy-print
 
+## High Browser Compatibility
+
+## Low Size
+
+## No dependencies
+
 ## Usage
 
 **example 1** a page with a single printable component without anything else 
