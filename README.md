@@ -1,12 +1,19 @@
 # react-easy-print
 
 ## High Browser Compatibility
+[All >25% browsers by browserlist](https://github.com/a-x-/react-easy-print/blob/master/.babelrc#L9).
+
+Look also: https://jamie.build/last-2-versions
 
 ## Low Size
+About 3KiB gzipped
 
 ## No dependencies
+Real talk
 
 ## Usage
+
+> Look for [API below](#api).
 
 **example 1** a page with a single printable component without anything else
 ```jsx
