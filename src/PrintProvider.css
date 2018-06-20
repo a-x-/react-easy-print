@@ -9,9 +9,9 @@
     left: 0
   }
   .hiddenAll {
-    visibility: hidden;
+    visibility: hidden !important;
   }
-  .hiddenAll .print {
+  .hiddenAll :global(.react-easy-print-print) {
     visibility: hidden;
   }
   .wrap._loose:not(._invert) {

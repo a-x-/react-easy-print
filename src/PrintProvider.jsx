@@ -24,13 +24,14 @@ export default class PrintProvider extends React.PureComponent {
     this.state = {
       isInPrintPreview: false,
       printableNodes: [],
-      hasSingle: false,
     };
     this.printableRegistry = {};
     window.matchMedia('print').onchange = () => {
       debug('toggle print mode', window.matchMedia('print').matches);
       this.setState({ isInPrintPreview: window.matchMedia('print').matches });
     };
+
+    this.hasSingle = false;
   }
 
   getChildContext() {
@@ -43,28 +44,46 @@ export default class PrintProvider extends React.PureComponent {
     };
   }
 
-  regPrintable(key, node, isSingle) {
+  regHiddenAll() {
+    document.body.classList.add(s.hiddenAll);
+    this.hasSingle = true;
+  }
+
+  unregHiddenAll() {
+    document.body.classList.remove(s.hiddenAll);
+    this.hasSingle = false;
+  }
+
+  regPrintable(key, node) {
     const loose = this.props.loose || this.props.invert;
+    const isSingle = node.props.single || node.props.main;
+    const { hasSingle } = this;
+
     debug('reg printable', key, node);
 
-    this.setState({
-      hasSingle: this.state.hasSingle || isSingle
-    });
-
-    if (this.printableRegistry[key] !== undefined || loose || isSingle) return;
+    if (this.printableRegistry[key] !== undefined || loose) return;
     setTimeout(() => this.setState({
       printableNodes: this.state.printableNodes.concat(node),
     }), 0);
     this.printableRegistry[key] = this.state.printableNodes.length;
+
+    if (isSingle && !hasSingle) {
+      this.regHiddenAll();
+    }else if(isSingle){
+      console.warn(new Error('react-easy-print warning \n\t you\'re using more than one `single` Print component'));
+    }
   }
 
-  unregPrintable(key) {
+  unregPrintable(key, isSingle) {
     const loose = this.props.loose || this.props.invert;
     if (this.printableRegistry[key] === undefined || this.state.isInPrintPreview || loose) return;
     this.setState({
       printableNodes: spliced(this.state.printableNodes, this.printableRegistry[key]),
     });
     this.printableRegistry = Object.assign({}, this.printableRegistry, { [key]: undefined });
+    if (isSingle) {
+      this.unregHiddenAll();
+    }
   }
 
   createRender(children) {
@@ -81,8 +100,9 @@ export default class PrintProvider extends React.PureComponent {
   }
 
   render() {
-    const { isInPrintPreview, printableNodes, hasSingle } = this.state;
+    const { isInPrintPreview, printableNodes } = this.state;
     const loose = this.props.loose || this.props.invert;
+    const { hasSingle } = this;
 
     if (isInPrintPreview && printableNodes.length && !loose && !hasSingle) {
       debug('render printable only', printableNodes);
@@ -97,9 +117,7 @@ export default class PrintProvider extends React.PureComponent {
     debug('render everything', isInPrintPreview, printableNodes.length, !loose);
     const loose_ = loose ? s.loose : '';
     const invert_ = this.props.invert ? s.invert : '';
-    const hiddenAll_ = hasSingle ? s.hiddenAll : '';
-
-    return <div className={`${s.wrap} ${loose_} ${invert_} ${hiddenAll_} `}>{this.props.children}</div>;
+    return <div className={`${s.wrap} ${loose_} ${invert_} `}>{this.props.children}</div>;
   }
 }
 PrintProvider.propTypes = propTypes;
