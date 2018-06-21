@@ -39,7 +39,6 @@ export default class Print extends React.Component {
         const isPrint = window.matchMedia('print').matches;
 
         if(isPrint){
-          console.log('PRINT HERE');
           const bodyRect = document.body.getBoundingClientRect();
           const elem = this.printElement;
           const elemRect = elem && elem.getBoundingClientRect();
@@ -51,7 +50,6 @@ export default class Print extends React.Component {
             printOffsetLeft,
           });
         }else{
-          console.log('print end');
           this.setState({
             printOffsetTop: 0,
             printOffsetLeft: 0
@@ -81,10 +79,8 @@ export default class Print extends React.Component {
     const excl_ = (exclusive || printOnly) ? s.exclusive : '';
     const isPrint = window.matchMedia('print').matches;
     const offset_ = ((printOffsetTop || printOffsetLeft ) && main_ && isPrint) ? { marginTop: -printOffsetTop, marginLeft: -printOffsetLeft} : {};
-    const globalClassName = 'react-easy-print-print'; // using in hiden all
+    const globalClassName = 'react-easy-print-print'; // using in hiddenAll
     const className = `${globalClassName} ${s.root} ${main_} ${excl_}`;
-    // this.state.printOffsetLeft = 0;
-    // this.state.printOffsetTop = 0;
     return <div ref={ (el) => this.printElement = el } style={offset_} className={className}>{children}</div>;
   }
 }

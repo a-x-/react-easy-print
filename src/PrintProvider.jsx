@@ -44,6 +44,7 @@ export default class PrintProvider extends React.PureComponent {
     };
   }
 
+  // regHiddenAll - is being used to cover all of React Portals, popups and modals and etc.
   regHiddenAll() {
     document.body.classList.add(s.hiddenAll);
     this.hasSingle = true;
