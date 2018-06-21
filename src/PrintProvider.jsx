@@ -44,13 +44,13 @@ export default class PrintProvider extends React.PureComponent {
     };
   }
 
-  // regHiddenAll - is being used to cover all of React Portals, popups and modals and etc.
-  regHiddenAll() {
+  // hideAll - is being used to cover all of React Portals, popups and modals and etc.
+  hideAll() {
     document.body.classList.add(s.hiddenAll);
     this.hasSingle = true;
   }
 
-  unregHiddenAll() {
+  unhideAll() {
     document.body.classList.remove(s.hiddenAll);
     this.hasSingle = false;
   }
@@ -69,7 +69,7 @@ export default class PrintProvider extends React.PureComponent {
     this.printableRegistry[key] = this.state.printableNodes.length;
 
     if (isSingle && !hasSingle) {
-      this.regHiddenAll();
+      this.hideAll();
     }else if(isSingle){
       console.warn(new Error('react-easy-print warning \n\t you\'re using more than one `single` Print component'));
     }
@@ -83,7 +83,7 @@ export default class PrintProvider extends React.PureComponent {
     });
     this.printableRegistry = Object.assign({}, this.printableRegistry, { [key]: undefined });
     if (isSingle) {
-      this.unregHiddenAll();
+      this.unhideAll();
     }
   }
 
