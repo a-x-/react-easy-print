@@ -6,7 +6,7 @@
   .root {
     visibility: visible; /* visible element even nested in the hidden one */
   }
-  ._main {
+  .root._main {
     visibility: visible;
   }
   ._exclusive {
