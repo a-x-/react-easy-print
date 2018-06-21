@@ -6,9 +6,6 @@
   .root {
     visibility: visible; /* visible element even nested in the hidden one */
   }
-  /* .hiddenAll._main{
-    visibility: visible;
-  } */
   .root._main {
     visibility: visible ;
   }
