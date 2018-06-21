@@ -7,7 +7,7 @@
     visibility: visible; /* visible element even nested in the hidden one */
   }
   .root._main {
-    visibility: visible ;
+    visibility: visible;
   }
   ._exclusive {
     display: block;
