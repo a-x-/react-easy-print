@@ -9,7 +9,7 @@ Look also: https://jamie.build/last-2-versions
 About 3KiB gzipped
 
 ## No dependencies
-Real talk
+We're using only one tiny build-time dependency to inject styles into a head
 
 ## Usage
 

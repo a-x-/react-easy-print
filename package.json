@@ -42,7 +42,9 @@
     "rollup-plugin-size-snapshot": "^0.5.1",
     "rollup-plugin-terser": "^1.0.1"
   },
-  "dependencies": {},
+  "dependencies": {
+    "load-styles": "^2.0.0"
+  },
   "peerDependencies": {
     "react": "15.x.x || 16.x.x",
     "react-dom": "15.x.x || 16.x.x",
