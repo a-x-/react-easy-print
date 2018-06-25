@@ -10,7 +10,7 @@ const propTypes = {
 export default class NoPrint extends React.PureComponent {
   render() {
     const { children, force } = this.props;
-    const force_ = force ? s.force : '';
+    const force_ = force ? s._force : '';
     return <div className={`${s.root} ${force_}`}>{children}</div>;
   }
 }
