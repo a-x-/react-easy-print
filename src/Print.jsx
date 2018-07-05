@@ -76,7 +76,7 @@ export default class Print extends React.Component {
     const { children, main, single, exclusive, printOnly } = this.props;
     const { printOffsetLeft, printOffsetTop } = this.state;
     const main_ = (main || single) ? s._main : '';
-    const excl_ = (exclusive || printOnly) ? s.exclusive : '';
+    const excl_ = (exclusive || printOnly) ? s._exclusive : '';
     const isPrint = window.matchMedia('print').matches;
     const offset_ = ((printOffsetTop || printOffsetLeft ) && main_ && isPrint) ? { marginTop: -printOffsetTop, marginLeft: -printOffsetLeft} : {};
     const globalClassName = 'react-easy-print-print'; // using in hiddenAll
