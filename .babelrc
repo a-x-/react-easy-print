@@ -46,6 +46,9 @@
     },
     "umd-production": {
       "plugins": [
+        ["transform-import-css", {
+          "generateScopedName": "easy-print-[name]-[local]-[hash:base64:4]"
+        }],
         ["transform-react-remove-prop-types", {
           "mode": "remove",
           "removeImport": true
