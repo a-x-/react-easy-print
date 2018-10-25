@@ -131,6 +131,7 @@ Useful in the some complex cases. You might not need the `NoPrint`.
 ## Alternatives
 * [react-print](https://github.com/captray/react-print)
 * [react-detect-print](https://github.com/tacomanator/react-detect-print)
+* [react-to-print](https://github.com/gregnb/react-to-print)
 
 ## Roadmap
 
