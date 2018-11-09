@@ -1,6 +1,6 @@
 # react-easy-print
 
-📦 Try out the `0.6.0-beta.3` with decreased bundle size and state issue fix
+📦 `0.6.0` with decreased bundle size and state issue fix released!
 
 ## High Browser Compatibility
 [All >25% browsers by browserlist](https://github.com/a-x-/react-easy-print/blob/master/.babelrc#L9).
