@@ -70,7 +70,7 @@ export default class PrintProvider extends React.PureComponent {
 
     if (isSingle && !hasSingle) {
       this.hideAll();
-    }else if(isSingle){
+    } else if (isSingle) {
       console.warn(new Error('react-easy-print warning \n\t you\'re using more than one `single` Print component'));
     }
   }
@@ -107,7 +107,7 @@ export default class PrintProvider extends React.PureComponent {
 
     if (isInPrintPreview && printableNodes.length && !loose && !hasSingle) {
       debug('render printable only', printableNodes);
-      const children = React.Children.map(printableNodes, (child,key) => {
+      const children = React.Children.map(printableNodes, (child, key) => {
         return React.cloneElement(child, { key });
       });
 

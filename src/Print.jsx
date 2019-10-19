@@ -17,7 +17,7 @@ const contextTypes = PrintProvider.childContextTypes;
 
 export default class Print extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -38,7 +38,7 @@ export default class Print extends React.Component {
       window.matchMedia('print').onchange = () => {
         const isPrint = window.matchMedia('print').matches;
 
-        if(isPrint){
+        if (isPrint) {
           const bodyRect = document.body.getBoundingClientRect();
           const elem = this.printElement;
           const elemRect = elem && elem.getBoundingClientRect();
@@ -49,7 +49,7 @@ export default class Print extends React.Component {
             printOffsetTop,
             printOffsetLeft,
           });
-        }else{
+        } else {
           this.setState({
             printOffsetTop: 0,
             printOffsetLeft: 0
@@ -78,10 +78,10 @@ export default class Print extends React.Component {
     const main_ = (main || single) ? s._main : '';
     const excl_ = (exclusive || printOnly) ? s._exclusive : '';
     const isPrint = window.matchMedia('print').matches;
-    const offset_ = ((printOffsetTop || printOffsetLeft ) && main_ && isPrint) ? { marginTop: -printOffsetTop, marginLeft: -printOffsetLeft} : {};
+    const offset_ = ((printOffsetTop || printOffsetLeft) && main_ && isPrint) ? { marginTop: -printOffsetTop, marginLeft: -printOffsetLeft } : {};
     const globalClassName = 'react-easy-print-print'; // using in hiddenAll
     const className = `${globalClassName} ${s.root} ${main_} ${excl_}`;
-    return <div ref={ (el) => this.printElement = el } style={offset_} className={className}>{children}</div>;
+    return <div ref={(el) => this.printElement = el} style={offset_} className={className}>{children}</div>;
   }
 }
 Print.propTypes = propTypes;
