@@ -127,4 +127,6 @@ const PrintProvider = props => {
   );
 };
 
+export default PrintProvider;
+
 PrintProvider.propTypes = propTypes;
