@@ -13,3 +13,6 @@ const NoPrint = ({ children, force }) => {
 };
 
 NoPrint.propTypes = propTypes;
+
+export default NoPrint;
+

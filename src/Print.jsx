@@ -74,3 +74,5 @@ const Print = props => {
 };
 
 Print.propTypes = propTypes;
+
+export default Print; 
