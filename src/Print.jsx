@@ -14,9 +14,9 @@ const propTypes = {
 };
 
 const Print = props => {
-  const [state, setState] = useState({ printOffsetLeft: 0, printOffsetTop: 0 });
+  const [printOffsetLeft, setPrintOffsetLeft] = useState(0);
+  const [printOffsetTop, setPrintOffsetTop] = useState(0);
   const { regPrintable, unregPrintable } = usePrintProvider();
-  const { printOffsetLeft, printOffsetTop } = state;
   const printElement = useRef(null);
   const main_ = (props.main || props.single) ? s._main : '';
   const excl_ = (props.exclusive || props.printOnly) ? s._exclusive : '';
@@ -45,15 +45,11 @@ const Print = props => {
           const printOffsetLeft = elemRect && (elemRect.left - bodyRect.left);
           const printOffsetTop = elemRect && (elemRect.top - bodyRect.top);
 
-          setState({
-            printOffsetTop,
-            printOffsetLeft,
-          });
+          setPrintOffsetLeft(printOffsetLeft);
+          setPrintOffsetTop(printOffsetTop);
         } else {
-          setState({
-            printOffsetTop: 0,
-            printOffsetLeft: 0
-          });
+          setPrintOffsetLeft(0);
+          setPrintOffsetTop(0);
         }
       };
     }

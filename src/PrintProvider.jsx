@@ -25,8 +25,8 @@ const deleteRender = () => {
 
 const PrintProvider = props => {
 
-  const [state, setState] = useState({ isInPrintPreview, printableNodes });
-  const { isInPrintPreview, printableNodes } = state;
+  const [isInPrintPreview, setIsInPrintPreview] = useState(false);
+  const [printableNodes, setPrintableNodes ] = useState([]);
 
   const printableRegistry = useRef({});
   const hasSingle = useRef(false);
@@ -51,13 +51,10 @@ const PrintProvider = props => {
     if (printableRegistry.current[key] !== undefined || loose) return;
     setTimeout(
       () =>
-        setState({
-          printableNodes: state.printableNodes.concat(node),
-          isInPrintPreview,
-        }),
+        setPrintableNodes(printableNodes.concat(node)),
       0
     );
-    printableRegistry.current[key] = state.printableNodes.length;
+    printableRegistry.current[key] = printableNodes.length;
 
     if (isSingle && !hasSingle) {
       hideAll();
@@ -74,17 +71,16 @@ const PrintProvider = props => {
     const loose = props.loose || props.invert;
     if (
       printableRegistry[key] === undefined ||
-      state.isInPrintPreview ||
+      isInPrintPreview ||
       loose
     )
       return;
-    setState({
-      printableNodes: spliced(
-        state.printableNodes,
+    setPrintableNodes(
+      spliced(
+        printableNodes,
         printableRegistry[key]
-      ),
-      isInPrintPreview,
-    });
+      )
+    );
     printableRegistry.current = Object.assign({}, printableRegistry, {
       [key]: undefined
     });
@@ -96,7 +92,7 @@ const PrintProvider = props => {
   useEffect(() => {
     window.matchMedia('print').onchange = () => {
       debug('toggle print mode', window.matchMedia('print').matches);
-      setState({ isInPrintPreview: window.matchMedia('print').matches, printableNodes });
+      setIsInPrintPreview(window.matchMedia('print').matches);
     };
   });
 
