@@ -81,9 +81,10 @@ const PrintProvider = props => {
         printableRegistry[key]
       )
     );
-    printableRegistry.current = Object.assign({}, printableRegistry, {
+    printableRegistry.current = {
+      ...printableRegistry,
       [key]: undefined
-    });
+    };
     if (isSingle) {
       unhideAll();
     }
