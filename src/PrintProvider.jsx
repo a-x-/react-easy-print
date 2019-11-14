@@ -70,7 +70,7 @@ const PrintProvider = props => {
   const unregPrintable = (key, isSingle) => {
     const loose = props.loose || props.invert;
     if (
-      printableRegistry[key] === undefined ||
+      printableRegistry.current[key] === undefined ||
       isInPrintPreview ||
       loose
     )
@@ -78,11 +78,11 @@ const PrintProvider = props => {
     setPrintableNodes(
       spliced(
         printableNodes,
-        printableRegistry[key]
+        printableRegistry.current[key]
       )
     );
     printableRegistry.current = {
-      ...printableRegistry,
+      ...printableRegistry.current,
       [key]: undefined
     };
     if (isSingle) {
