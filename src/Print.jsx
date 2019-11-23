@@ -40,7 +40,7 @@ export default function Print (props) {
 
         if (isPrint) {
           const bodyRect = document.body.getBoundingClientRect();
-          const elem = printElement;
+          const elem = printElement.current;
           const elemRect = elem && elem.getBoundingClientRect();
           const printOffsetLeft = elemRect && (elemRect.left - bodyRect.left);
           const printOffsetTop = elemRect && (elemRect.top - bodyRect.top);
@@ -65,7 +65,7 @@ export default function Print (props) {
         window.matchMedia('print').onchange = null;
       }
     };
-  });
+  }, []);
   return <div ref={printElement} style={offset_} className={className}>{props.children}</div>;
 }
 
