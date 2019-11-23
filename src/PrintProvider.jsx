@@ -33,6 +33,32 @@ export default function PrintProvider (props) {
   const printableRegistry = useRef({});
   const hasSingle = useRef(false);
 
+  const loose = props.loose || props.invert;
+  const loose_ = loose ? s.loose : '';
+  const invert_ = props.invert ? s.invert : '';
+
+  useEffect(() => {
+    window.matchMedia('print').onchange = () => {
+      debug('toggle print mode', window.matchMedia('print').matches);
+      setIsInPrintPreview(window.matchMedia('print').matches);
+    };
+  });
+
+  useEffect(() => {
+    if (isInPrintPreview && printableNodes.length && !loose && !hasSingle.current) {
+      debug('render printable only', printableNodes);
+      const children = React.Children.map(printableNodes, (child, key) => {
+        return React.cloneElement(child, { key });
+      });
+      createRender(<div>{children}</div>);
+    }
+    setTimeout(() => deleteRender(), 0);
+  });
+
+  useEffect(() => {
+    debug('render everything', isInPrintPreview, printableNodes.length, !loose);
+  });
+
   // hideAll - is being used to cover all of React Portals, popups and modals and etc.
   const hideAll = () => {
     document.body.classList.add(s.hiddenAll);
@@ -58,7 +84,7 @@ export default function PrintProvider (props) {
     );
     printableRegistry.current[key] = printableNodes.length;
 
-    if (isSingle && !hasSingle) {
+    if (isSingle && !hasSingle.current) {
       hideAll();
     } else if (isSingle) {
       console.warn(
@@ -91,32 +117,7 @@ export default function PrintProvider (props) {
       unhideAll();
     }
   };
-
-  useEffect(() => {
-    window.matchMedia('print').onchange = () => {
-      debug('toggle print mode', window.matchMedia('print').matches);
-      setIsInPrintPreview(window.matchMedia('print').matches);
-    };
-  });
-
-  useEffect(() => {
-    if (isInPrintPreview && printableNodes.length && !loose && !hasSingle) {
-      debug('render printable only', printableNodes);
-      const children = React.Children.map(printableNodes, (child, key) => {
-        return React.cloneElement(child, { key });
-      });
-      createRender(<div>{children}</div>);
-    }
-    setTimeout(() => deleteRender(), 0);
-  });
   
-  useEffect(() => {
-    debug('render everything', isInPrintPreview, printableNodes.length, !loose);
-  });
-
-  const loose = props.loose || props.invert;
-  const loose_ = loose ? s.loose : '';
-  const invert_ = props.invert ? s.invert : '';
   return (
     <PrintProviderContext.Provider unregPrintable={unregPrintable} regPrintable={regPrintable}>
       <div className={`${s.wrap} ${loose_} ${invert_} `}>
