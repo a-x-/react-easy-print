@@ -42,7 +42,7 @@ export default function PrintProvider (props) {
       debug('toggle print mode', window.matchMedia('print').matches);
       setIsInPrintPreview(window.matchMedia('print').matches);
     };
-  });
+  }, []);
 
   useEffect(() => {
     if (isInPrintPreview && printableNodes.length && !loose && !hasSingle.current) {
@@ -57,7 +57,7 @@ export default function PrintProvider (props) {
 
   useEffect(() => {
     debug('render everything', isInPrintPreview, printableNodes.length, !loose);
-  });
+  }, [isInPrintPreview, printableNodes.length, loose]);
 
   // hideAll - is being used to cover all of React Portals, popups and modals and etc.
   const hideAll = () => {
