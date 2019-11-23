@@ -23,7 +23,7 @@ const deleteRender = () => {
   el && document.body.removeChild(el);
 };
 
-const PrintProvider = props => {
+export default function PrintProvider (props) {
 
   const [isInPrintPreview, setIsInPrintPreview] = useState(false);
   const [printableNodes, setPrintableNodes ] = useState([]);
@@ -123,7 +123,5 @@ const PrintProvider = props => {
     </PrintProviderContext.Provider>
   );
 };
-
-export default PrintProvider;
 
 PrintProvider.propTypes = propTypes;
