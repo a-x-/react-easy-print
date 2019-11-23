@@ -7,12 +7,9 @@ const propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-const NoPrint = ({ children, force }) => {
+export default function NoPrint ({ children, force }) {
   const force_ = force ? s._force : '';
   return <div className={`${s.root} ${force_}`}>{children}</div>;
-};
+}
 
 NoPrint.propTypes = propTypes;
-
-export default NoPrint;
-
