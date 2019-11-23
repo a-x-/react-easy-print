@@ -109,10 +109,9 @@ export default function PrintProvider (props) {
         printableRegistry.current[key]
       )
     );
-    printableRegistry.current = {
-      ...printableRegistry.current,
+    printableRegistry.current = Object.assign({}, printableRegistry.current, {
       [key]: undefined
-    };
+    });
     if (isSingle) {
       unhideAll();
     }
