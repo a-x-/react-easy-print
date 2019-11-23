@@ -13,7 +13,7 @@ const propTypes = {
   printOnly: PropTypes.bool
 };
 
-const Print = props => {
+export default function Print (props) {
   const [printOffsetLeft, setPrintOffsetLeft] = useState(0);
   const [printOffsetTop, setPrintOffsetTop] = useState(0);
   const { regPrintable, unregPrintable } = usePrintProvider();
@@ -67,8 +67,6 @@ const Print = props => {
     };
   });
   return <div ref={printElement} style={offset_} className={className}>{props.children}</div>;
-};
+}
 
 Print.propTypes = propTypes;
-
-export default Print; 
