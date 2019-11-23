@@ -11,15 +11,17 @@ export const propTypes = {
   invert: PropTypes.bool
 };
 
+const ID = 'react-easy-print-render';
+
 const createRender = children => {
   const el = document.createElement('div');
-  el.id = 'render';
+  el.id = ID;
   document.body.appendChild(el);
   ReactDOM.render(<div className={s.printRender}>{children}</div>, el);
 };
 
 const deleteRender = () => {
-  const el = document.getElementById('render');
+  const el = document.getElementById(ID);
   el && document.body.removeChild(el);
 };
 
