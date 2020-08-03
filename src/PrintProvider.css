@@ -17,4 +17,9 @@
   .wrap._loose:not(._invert) {
     visibility: hidden;
   }
+  .react-easy-print-print{
+    position: absolute;
+    left: 0;
+    top: 0;
+	}
 }
