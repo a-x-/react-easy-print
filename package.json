@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "load-styles": "^2.0.0",
-    "set-value": "^2.0.1"
+    "set-value": "^4.0.1"
   },
   "peerDependencies": {
     "react": "15.x.x || 16.x.x",
